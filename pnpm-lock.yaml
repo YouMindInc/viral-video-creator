@@ -26,6 +26,24 @@ importers:
         specifier: 0.9.98
         version: 0.9.98
 
+  templates/prompt-recipe-advanced:
+    dependencies:
+      gsap:
+        specifier: 3.14.2
+        version: 3.14.2
+      hyperframes:
+        specifier: 0.9.98
+        version: 0.9.98
+
+  templates/quickcut-tutorial:
+    dependencies:
+      gsap:
+        specifier: 3.14.2
+        version: 3.14.2
+      hyperframes:
+        specifier: 0.9.98
+        version: 0.9.98
+
 packages:
 
   '@emnapi/runtime@1.11.3':

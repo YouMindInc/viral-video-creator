@@ -1,8 +1,10 @@
 # AGENT.md — operating guide for `viral-video-creator`
 
-The repo has two templates. Pick one from the user's material, or ask once if it's unclear.
+The repo has three templates. Pick one from the user's material, or ask once if it's unclear.
 - **editorial-explainer:** sections 1–4 below.
 - **prompt-recipe:** an AI result shown as a recipe card. See "Prompt Recipe" near the end.
+- **prompt-recipe-advanced:** the same poster, then a YouMind end card with a spoken comment line. See "Prompt Recipe Advanced" near the end.
+- **quickcut-tutorial:** a talking-head tutorial with fast cutaways. See "Quick-Cut Tutorial" near the end.
 
 The editorial-explainer template turns two videos and a few lines of text into a finished 1080×1920 short:
 **top** = product / share-content video, **middle** = headline and subtitles, **bottom** = a talking person,
@@ -268,6 +270,70 @@ sound come from the video.
 For the live player, run `node_modules/.bin/hyperframes preview templates/prompt-recipe --port 3019 --background --no-open`.
 
 **Final:** `pnpm render:prompt-recipe` writes `templates/prompt-recipe/renders/prompt-recipe.mp4`.
+
+## Prompt Recipe Advanced (`templates/prompt-recipe-advanced`)
+
+Use it when the user wants the video to end with a spoken call to action. It is Prompt Recipe plus three things:
+- **End card:** after the result clip, a big YouMind app icon, the name and the comment line, with the keyword chip pulsing as it's spoken.
+- **Voice line:** spoken over the end card.
+- **Reference corners:** rounded to 5 px.
+
+**Ask for:** the same material as Prompt Recipe, plus the comment keyword and the sentence to speak. Use the
+user's own recording if they have one (`voice.file`); otherwise `voice.text` is synthesised offline with macOS `say`
+(`voice.speaker`: `Samantha` by default; `Daniel`, `Karen`, `Flo (English (US))`…).
+
+**Build it:**
+1. Set the same fields as Prompt Recipe in `templates/prompt-recipe-advanced/template.json`, plus `cta`,
+   `voice.text` and (optionally) `endCard.text`.
+2. Run `pnpm build:prompt-recipe-advanced`. It prints the clip length, the end-card length and when the voice starts.
+
+The end card lasts at least 2.8 s and stretches to fit the voice.
+
+**Preview:** take stills mid-clip and about 1.5 s after the clip ends, and use the live player on `--port 3021`. Check that the
+end card fades in from the clip's last frame and the comment line fits.
+
+**Final:** `pnpm render:prompt-recipe-advanced`. Check the audio: the voice should be the loudest part of the last few seconds.
+
+## Quick-Cut Tutorial (`templates/quickcut-tutorial`)
+
+A talking-head tutorial with cutaways, word-by-word captions and a "COMMENT 'KEYWORD'" ending. The scene types,
+their geometry and the reference timings are in `templates/quickcut-tutorial/BREAKDOWN.md`.
+
+**Ask for:**
+1. the talking-head video (required);
+2. every screen recording, AI result or B-roll clip they want shown (required);
+3. the comment keyword;
+4. optionally, their avatar, display name, handle and a one-line bio for the profile card.
+
+**Build it (no user input):**
+1. Copy the files into `templates/quickcut-tutorial/assets/inputs/`.
+2. Run `pnpm transcribe:quickcut-tutorial assets/inputs/<talk>.mp4` to write the word-level `<talk>.words.srt`.
+   Set `aroll` and `captions` to those files.
+3. **Plan `scenes` from the transcript yourself.** Look at a frame of every media file first.
+
+   | Speech | Scene |
+   |---|---|
+   | The hook (first ~2 s) | `inset` over the most impressive result, or leave it as `face` with kinetic captions |
+   | "go to / open / type / paste / click / upload" | `split` (desktop recording) or `phone` (phone recording) |
+   | "to get this / like this / watch / here's the result" | `broll` (landscape or full-frame result) or `card` (vertical result on blur) |
+   | "you don't need… / anyone can…" over supporting footage | `bubble` |
+   | Lists, audiences, numbers, prices | `title` with 1–3 coloured `lines`; set each `at` to the word's time |
+   | "comment X and I'll send you…" | `cta` with `keyword: X`, running to the end |
+
+   - Leave gaps for plain `face` shots between cutaways; the build alternates punch-ins automatically.
+   - Keep each scene 1.5–4 s, and cut on word boundaries from the SRT.
+   - Use `transition: "flash"` at most two or three times.
+4. Run `pnpm build:quickcut-tutorial`. It prints the segment order and the caption count.
+
+**Preview:** take one still per scene with `node_modules/.bin/hyperframes snapshot templates/quickcut-tutorial --at <mid-point of each scene, comma-separated> --no-end -o "$RUN"`.
+The live player is `--port 3020`. Read the contact sheet and check:
+- captions don't cover faces or UI text;
+- titles fit;
+- the right media is in each slot.
+
+Then show the user.
+
+**Final:** `pnpm render:quickcut-tutorial` (a 20 s video renders in about 30 s).
 
 ## Manual SAM2 (face not detected, wrong mask, person size)
 

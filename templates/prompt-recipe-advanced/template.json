@@ -1,0 +1,45 @@
+{
+  "layout": "auto",
+  "motion": "static",
+  "audio": "result",
+  "duration": 0,
+  "cta": "Comment {skill} to get the Giant Kitten generation prompt in one click",
+  "voice": {
+    "text": "Leave a comment, skill, to get the Giant Kitten generation prompt in one click.",
+    "speaker": "Samantha",
+    "rate": 175,
+    "file": "",
+    "volume": 1
+  },
+  "endCard": {
+    "enabled": true,
+    "icon": "assets/brand/youmind-app-icon.png",
+    "name": "YouMind",
+    "text": "",
+    "minDuration": 2.8
+  },
+  "result": "assets/sample/giant-kitten.mp4",
+  "model": {
+    "name": "YouMind",
+    "icon": "assets/brand/youmind-mark.png"
+  },
+  "prompt": {
+    "title": "Prompt",
+    "text": "Create a 10 second photorealistic disaster-movie shot, vertical 9:16.\n\nIMAGE 1: Preserve the kitten's exact face, tabby markings, white chest and paws, ear shape and eye colour. Do not change its identity.\n\nThe kitten is now skyscraper-sized in downtown Los Angeles. Low street-level angle: it peers between glass towers and paws at a window while police cars and a crowd film it on their phones. Cut to an aerial drone shot as it steps across the rooftops. Bright daylight, drifting dust, handheld news-camera feel."
+  },
+  "reference": {
+    "title": "Reference",
+    "media": "assets/sample/kitten-reference.jpg",
+    "fit": "cover",
+    "background": "#FFFFFF",
+    "radius": 5
+  },
+  "colors": {
+    "top": "#F7C29A",
+    "mid": "#FADBC6",
+    "bottom": "#FFF9F4",
+    "card": "#5F5F5F",
+    "cardInk": "#FFFFFF",
+    "ink": "#0D0D0D"
+  }
+}

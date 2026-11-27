@@ -1,0 +1,130 @@
+{
+  "aroll": "assets/sample/aroll.mp4",
+  "captions": "assets/sample/aroll.words.srt",
+  "captionWords": 4,
+  "highlight": [
+    "Opus"
+  ],
+  "music": "",
+  "musicVolume": 0.12,
+  "punchIn": 1.12,
+  "faceFocus": 35,
+  "splitAt": 786,
+  "profile": {
+    "avatar": "assets/sample/avatar.jpg",
+    "name": "Your Name",
+    "handle": "@yourhandle",
+    "bio": "AI tools, explained in 30 seconds",
+    "button": "Follow"
+  },
+  "colors": {
+    "accent": "#FFE81A",
+    "divider": "#FFE81A",
+    "green": "#3BE03F",
+    "red": "#F23B45",
+    "pink": "#F7A6F0",
+    "orange": "#FF9F1C",
+    "white": "#FFFFFF",
+    "phone": "#F3A291"
+  },
+  "scenes": [
+    {
+      "type": "inset",
+      "start": 0,
+      "end": 2,
+      "media": "assets/sample/screen.mp4",
+      "mediaStart": 4
+    },
+    {
+      "type": "split",
+      "start": 3.5,
+      "end": 5.3,
+      "media": "assets/sample/animation.mp4",
+      "mediaStart": 2
+    },
+    {
+      "type": "phone",
+      "start": 5.3,
+      "end": 7.4,
+      "media": "assets/sample/screen.mp4",
+      "mediaStart": 1,
+      "background": "#F3A291",
+      "transition": "flash"
+    },
+    {
+      "type": "card",
+      "start": 7.4,
+      "end": 8.55,
+      "media": "assets/sample/screen.mp4",
+      "mediaStart": 3,
+      "background": "blur"
+    },
+    {
+      "type": "title",
+      "start": 8.55,
+      "end": 11.3,
+      "over": "blur",
+      "media": "assets/sample/screen.mp4",
+      "mediaStart": 6,
+      "tint": "#7A2CBF",
+      "lines": [
+        {
+          "text": "Scenes",
+          "color": "accent",
+          "size": "l",
+          "at": 0.05
+        },
+        {
+          "text": "Timelines",
+          "color": "pink",
+          "size": "m",
+          "at": 0.9
+        },
+        {
+          "text": "Vectors",
+          "color": "green",
+          "size": "m",
+          "at": 2
+        }
+      ]
+    },
+    {
+      "type": "broll",
+      "start": 11.3,
+      "end": 13,
+      "media": "assets/sample/screen.mp4",
+      "mediaStart": 12
+    },
+    {
+      "type": "bubble",
+      "start": 13,
+      "end": 15.35,
+      "media": "assets/sample/screen.mp4",
+      "mediaStart": 10
+    },
+    {
+      "type": "title",
+      "start": 15.35,
+      "end": 16.65,
+      "over": "face",
+      "lines": [
+        {
+          "text": "in",
+          "size": "s"
+        },
+        {
+          "text": "18 repos",
+          "color": "green",
+          "size": "l",
+          "at": 0.2
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "start": 16.65,
+      "end": 30,
+      "keyword": "SKILL"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@viral-video-creator/quickcut-tutorial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "transcribe": "node scripts/build.mjs transcribe",
+    "verify": "node --test scripts/build.test.mjs",
+    "check": "node scripts/build.mjs && hyperframes lint . && hyperframes check .",
+    "preview": "node scripts/build.mjs && hyperframes preview . --port 3020",
+    "render": "node scripts/build.mjs && hyperframes render . --output renders/quickcut-tutorial.mp4"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "gsap": "3.14.2",
+    "hyperframes": "0.9.98"
+  }
+}

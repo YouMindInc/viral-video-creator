@@ -1,0 +1,35 @@
+{
+  "layout": "auto",
+  "motion": "static",
+  "audio": "none",
+  "duration": 0,
+  "cta": "Comment {skill} to get this prompt in one click",
+  "result": "assets/sample/result-wide.mp4",
+  "model": {
+    "name": "YouMind",
+    "icon": "assets/brand/youmind-mark.png"
+  },
+  "prompt": {
+    "title": "Prompt",
+    "text": "8-second animated explainer. Aspect ratio 16:9, landscape composition.\n\nTurn the repository list in the reference screenshot into a clean motion-design sequence: each repository card slides in on a soft sage background, its name set in a bold serif, followed by a one-line description in a small grey sans.\n\nKeep the exact repository names, order and link colours from the reference. Smooth easing, gentle parallax between cards, no camera shake, finish on the full list."
+  },
+  "reference": {
+    "title": "Product",
+    "media": "assets/sample/reference-wide.jpg",
+    "fit": "contain",
+    "background": "#FFFFFF",
+    "radius": 5
+  },
+  "colors": {
+    "top": "#F7C29A",
+    "mid": "#FADBC6",
+    "bottom": "#FFF9F4",
+    "card": "#545454",
+    "cardInk": "#F4F4F4",
+    "ink": "#0D0D0D"
+  },
+  "voice": {
+    "text": "Leave a comment, skill, to get this prompt in one click.",
+    "speaker": "Samantha"
+  }
+}
