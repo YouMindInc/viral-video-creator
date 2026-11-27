@@ -1,0 +1,27 @@
+{
+  "name": "@viral-video-creator/editorial-explainer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "clean": "node scripts/clean.mjs",
+    "build": "node scripts/hyperframes-project.mjs build",
+    "prepare-persona": "node scripts/hyperframes-project.mjs prepare",
+    "sam2:test": "node scripts/sam2-bridge.mjs test",
+    "sam2:prepare": "node scripts/sam2-bridge.mjs prepare",
+    "sam2:import": "node scripts/sam2-bridge.mjs import",
+    "verify": "node scripts/verify-template.mjs && node --test scripts/generate.test.mjs scripts/clean.test.mjs",
+    "check": "hyperframes lint . && hyperframes check .",
+    "start": "node scripts/template-editor.mjs",
+    "preview": "hyperframes preview . --port 3017",
+    "render": "hyperframes render . --output renders/news-channel.mp4"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "gsap": "3.14.2",
+    "hyperframes": "0.9.98"
+  }
+}

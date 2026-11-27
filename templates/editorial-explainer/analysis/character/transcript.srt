@@ -1,0 +1,44 @@
+1
+00:00:00,000 --> 00:00:02,010
+ None of these animations were
+
+2
+00:00:02,010 --> 00:00:03,520
+ made in After Effects.
+
+3
+00:00:03,520 --> 00:00:05,320
+ They were all built with 18
+
+4
+00:00:05,320 --> 00:00:07,580
+ free open source skills for Opus
+
+5
+00:00:07,580 --> 00:00:08,720
+ 5.5.
+
+6
+00:00:08,720 --> 00:00:11,360
+ Scenes, Timelines, Vectors,
+
+7
+00:00:11,360 --> 00:00:13,120
+ Particles, Export,
+
+8
+00:00:13,120 --> 00:00:15,330
+ a full animation design studio
+
+9
+00:00:15,330 --> 00:00:16,720
+ in 18 repos.
+
+10
+00:00:16,720 --> 00:00:18,980
+ Comment "Skill" and I'll send
+
+11
+00:00:18,980 --> 00:00:20,400
+ you all 18.
+

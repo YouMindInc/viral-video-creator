@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>News channel template</title>
+  <link rel="stylesheet" href="template.css">
+  <script src="config.js" defer></script>
+  <script src="template.js" defer></script>
+</head>
+<body>
+  <main class="workspace">
+    <header class="toolbar">
+      <div class="project-name">News channel <span>1080 × 1920</span></div>
+      <div class="toolbar-actions">
+        <label>View <select id="mode"><option value="template">Template</option><option value="source">Source example</option></select></label>
+        <label><input id="guides" type="checkbox"> Layout guides</label>
+        <a href="template-image.png" download>Template image ↗</a>
+      </div>
+    </header>
+    <div class="preview-area">
+      <div class="preview-frame">
+        <div id="composition" aria-label="Portrait video template">
+          <section class="scene-content" aria-label="Top visual content">
+            <div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round"><path d="M24 3v42M3 24h42M9.2 9.2l29.6 29.6M9.2 38.8 38.8 9.2M16 4.6l16 38.8M4.6 16l38.8 16M4.6 32 43.4 16M16 43.4 32 4.6"/></g></svg><span id="brand-text">YOUR BRAND</span></div>
+            <h1 id="headline"><span>Your headline.</span><span>One clear idea.</span></h1>
+            <div class="visual-panel">
+              <div id="visual-placeholder" class="visual-placeholder">
+                <svg viewBox="0 0 180 145" aria-hidden="true"><rect x="10" y="10" width="160" height="125" rx="14" fill="none" stroke="currentColor" stroke-width="10"/><circle cx="126" cy="49" r="15" fill="currentColor"/><path d="M15 119 62 71l40 39 20-20 43 36v9H15z" fill="currentColor"/></svg>
+                <strong>VISUAL CONTENT</strong><span>Screenshots · Demos · B-roll</span>
+              </div>
+              <img id="visual-previous" class="visual-media" alt="Previous visual" hidden>
+              <img id="visual-current" class="visual-media" alt="Current visual" hidden>
+              <div id="custom-visual" class="custom-visual" hidden></div>
+            </div>
+            <div id="visual-label" class="visual-label">CONTENT LABEL</div>
+          </section>
+          <section class="subtitle-zone" aria-label="Middle subtitles"><div id="subtitle" class="subtitle">Your subtitle goes here</div></section>
+          <section class="persona-zone" aria-label="Bottom persona placeholder">
+            <div class="persona-backdrop"></div>
+            <div id="persona-placeholder" class="persona-placeholder">
+              <svg viewBox="0 0 1080 640" role="img" aria-label="Presenter silhouette"><path d="M190 640c8-157 28-204 128-239 80-28 105-20 109-77-49-34-77-91-77-160C350 72 421 0 540 0s190 72 190 164c0 69-28 126-77 160 4 57 29 49 109 77 100 35 120 82 128 239Z" fill="currentColor"/></svg>
+              <span>PERSONA PLACEHOLDER</span>
+            </div>
+            <div id="persona-custom" class="persona-custom" hidden></div>
+          </section>
+          <div class="guide guide-visual">01 · VISUAL CONTENT</div>
+          <div class="guide guide-subtitle">02 · SUBTITLES</div>
+          <div class="guide guide-persona">03 · PERSONA</div>
+        </div>
+      </div>
+    </div>
+    <footer class="controls">
+      <button id="play" type="button" aria-label="Play preview">Play</button>
+      <button id="restart" type="button" aria-label="Restart preview">↺</button>
+      <input id="seek" aria-label="Video time" type="range" min="0" max="18.766667" step="0.033333333" value="0">
+      <output id="time" for="seek">0.00 / 18.77s</output>
+      <label class="audio-control"><input id="audio-enabled" type="checkbox" disabled> Source audio</label>
+    </footer>
+    <p class="mode-note" id="mode-note">Replace the visual, subtitle, and persona independently in config.js.</p>
+    <p class="error-message" id="error-message" role="alert" hidden></p>
+  </main>
+  <audio id="source-audio" preload="none"></audio>
+</body>
+</html>

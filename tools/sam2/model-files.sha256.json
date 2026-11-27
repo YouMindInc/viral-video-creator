@@ -1,0 +1,14 @@
+{
+  "model": "apple/coreml-sam2-small",
+  "files": {
+    "models/coreml-sam2-small/SAM2SmallImageEncoderFLOAT16.mlpackage/Data/com.apple.CoreML/model.mlmodel": "6b83f9fd856c10d562bb4996b88913229d200326cd583520ecaa8aec944b7d83",
+    "models/coreml-sam2-small/SAM2SmallImageEncoderFLOAT16.mlpackage/Data/com.apple.CoreML/weights/weight.bin": "bea4817bcb35157b9d89cff1d5667f2749652461e9e4eb5a32d0ddf58f519c43",
+    "models/coreml-sam2-small/SAM2SmallImageEncoderFLOAT16.mlpackage/Manifest.json": "85496feea705c616c1b9c5b54a259ef3ce5980de309c8dad6313c3d57ddd0973",
+    "models/coreml-sam2-small/SAM2SmallMaskDecoderFLOAT16.mlpackage/Data/com.apple.CoreML/model.mlmodel": "a5f385afb0c2658a7181e807d58381afdfcc44cff2bf089036b90aa52eeadd2e",
+    "models/coreml-sam2-small/SAM2SmallMaskDecoderFLOAT16.mlpackage/Data/com.apple.CoreML/weights/weight.bin": "c2244ed5ca08e5b7b88eaa2981cb06a1b6345569057bb807ab0bc23639d75c21",
+    "models/coreml-sam2-small/SAM2SmallMaskDecoderFLOAT16.mlpackage/Manifest.json": "f45975d9bdffc211bae7afb5774edc63fdc7665b6296e78a47191e80d975250b",
+    "models/coreml-sam2-small/SAM2SmallPromptEncoderFLOAT16.mlpackage/Data/com.apple.CoreML/model.mlmodel": "fb590eaae4bcf5e522b6c5c1f22b8b399cc90f02d0a56d9cc7e2934817429614",
+    "models/coreml-sam2-small/SAM2SmallPromptEncoderFLOAT16.mlpackage/Data/com.apple.CoreML/weights/weight.bin": "7227cf25b79591d5a9d314ea76dfa5045c511c43460022493631137b9ec87cfa",
+    "models/coreml-sam2-small/SAM2SmallPromptEncoderFLOAT16.mlpackage/Manifest.json": "2f4105530e09aedd5fb96476faefab3bf391e4eef2f5f9a4dd9ab02665fbfc85"
+  }
+}

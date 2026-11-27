@@ -1,0 +1,9 @@
+{
+  "engine": "sam2",
+  "fingerprint": "88e005db878635b4abb23ffe8361d5c8d4894ea72adb392dd551a3d6c72ecee5",
+  "overlay": "assets/persona/sam2-88e005db878635b4.webm",
+  "source": "source/character-talking.mp4",
+  "duration": 20.36,
+  "width": 1080,
+  "height": 1920
+}

@@ -1,0 +1,15 @@
+Use case: ui-mockup
+Asset type: reusable 9:16 news / explainer video template image, intended canvas 1080 x 1920.
+Input image 1 is a composition and style reference extracted from the user's source video. Rebuild its layout as a clean, generic template with editable-content placeholders, not as an infographic about the layout.
+
+Preserve the source's warm ivory background (#E9EAE1), centered black editorial serif headline, generous spacing, softly rounded visual panel, compact charcoal subtitle pill, and bottom presenter panel. Fill the entire portrait image with the template. No phone frame, arrows, measurements, decorative border, or explanatory sidebar.
+
+At the top, place a very small restrained terracotta star beside the text "YOUR BRAND", centered at approximately y=140 on the 1920-pixel-high canvas. Below, centered large elegant black serif text on two lines: "Your headline." and "One clear idea." This header belongs to the top visual-content area.
+
+The main visual placeholder is x=60, y=430, width=960, height=660, with 36px rounded corners, subtle border and soft shadow. Use a quiet pale-sage background with a simple faint picture glyph, not a detailed UI or collage. Center the exact label "VISUAL CONTENT" and smaller text "Screenshots · Demos · B-roll" inside. Below the panel at y=1125, a small muted uppercase label "CONTENT LABEL".
+
+In the gap between the visual and persona, centered at y=1207, a snug rounded charcoal pill with bold white text exactly "Your subtitle goes here". It should be a single line and approximately 66px high, with comfortable horizontal padding. Keep this subtitle zone visibly separate from the presenter.
+
+The persona placeholder occupies the bottom. Its rounded background panel begins at x=64, y=1420, width=952 and extends to the bottom edge. It is a muted taupe / sage panel. A simple smooth neutral darker-sage bust silhouette is centered: the top of its oval head rises to y=1290, clearly protruding above the panel, shoulders and torso continue to the lower edge. No real person, no face, no photographic detail. Put the small clean exact label "PERSONA PLACEHOLDER" centered across the torso around y=1760, with readable subdued contrast.
+
+Match the reference's relative proportions. Top visual content dominates the upper 60%; subtitles form the narrow middle separator; persona occupies roughly the lower third. Crisp professional typography, calm editorial style, no gradients, no bright colors, no additional text, no source brand name or source presenter.

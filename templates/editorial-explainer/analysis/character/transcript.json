@@ -1,0 +1,153 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 4
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/wilson/.cache/whisper-cpp-models/ggml-large-v3-turbo.bin",
+		"language": "auto",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,010"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2010
+			},
+			"text": " None of these animations were"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:02,010",
+				"to": "00:00:03,520"
+			},
+			"offsets": {
+				"from": 2010,
+				"to": 3520
+			},
+			"text": " made in After Effects."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:03,520",
+				"to": "00:00:05,320"
+			},
+			"offsets": {
+				"from": 3520,
+				"to": 5320
+			},
+			"text": " They were all built with 18"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:05,320",
+				"to": "00:00:07,580"
+			},
+			"offsets": {
+				"from": 5320,
+				"to": 7580
+			},
+			"text": " free open source skills for Opus"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:07,580",
+				"to": "00:00:08,720"
+			},
+			"offsets": {
+				"from": 7580,
+				"to": 8720
+			},
+			"text": " 5.5."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,720",
+				"to": "00:00:11,360"
+			},
+			"offsets": {
+				"from": 8720,
+				"to": 11360
+			},
+			"text": " Scenes, Timelines, Vectors,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:11,360",
+				"to": "00:00:13,120"
+			},
+			"offsets": {
+				"from": 11360,
+				"to": 13120
+			},
+			"text": " Particles, Export,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:13,120",
+				"to": "00:00:15,330"
+			},
+			"offsets": {
+				"from": 13120,
+				"to": 15330
+			},
+			"text": " a full animation design studio"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:15,330",
+				"to": "00:00:16,720"
+			},
+			"offsets": {
+				"from": 15330,
+				"to": 16720
+			},
+			"text": " in 18 repos."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:16,720",
+				"to": "00:00:18,980"
+			},
+			"offsets": {
+				"from": 16720,
+				"to": 18980
+			},
+			"text": " Comment \"Skill\" and I'll send"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:18,980",
+				"to": "00:00:20,400"
+			},
+			"offsets": {
+				"from": 18980,
+				"to": 20400
+			},
+			"text": " you all 18."
+		}
+	]
+}

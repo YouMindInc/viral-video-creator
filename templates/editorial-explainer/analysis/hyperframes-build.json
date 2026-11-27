@@ -1,0 +1,112 @@
+{
+  "duration": 20.36,
+  "width": 1080,
+  "height": 1920,
+  "captions": [
+    {
+      "start": 0,
+      "end": 2.01,
+      "text": "None of these animations were"
+    },
+    {
+      "start": 2.01,
+      "end": 3.52,
+      "text": "made in After Effects."
+    },
+    {
+      "start": 3.52,
+      "end": 5.32,
+      "text": "They were all built with 18"
+    },
+    {
+      "start": 5.32,
+      "end": 8.72,
+      "text": "free open-source skills for Opus 5.5."
+    },
+    {
+      "start": 8.72,
+      "end": 11.36,
+      "text": "Scenes, Timelines, Vectors,"
+    },
+    {
+      "start": 11.36,
+      "end": 13.12,
+      "text": "Particles, Export,"
+    },
+    {
+      "start": 13.12,
+      "end": 15.33,
+      "text": "a full animation design studio"
+    },
+    {
+      "start": 15.33,
+      "end": 16.72,
+      "text": "in 18 repos."
+    },
+    {
+      "start": 16.72,
+      "end": 18.98,
+      "text": "Comment \"Skill\" and I'll send"
+    },
+    {
+      "start": 18.98,
+      "end": 20.36,
+      "text": "you all 18."
+    }
+  ],
+  "personaPrepared": true,
+  "personaMode": "sam2",
+  "runtimeInstalled": true,
+  "visualDuration": 18.766667,
+  "crop": {
+    "width": 1080,
+    "height": 1920,
+    "x": 0,
+    "y": 450,
+    "maxY": 1280
+  },
+  "layout": {
+    "brand": {
+      "x": 70,
+      "y": 120,
+      "width": 940,
+      "height": 48,
+      "fontSize": 40
+    },
+    "headline": {
+      "x": 60,
+      "y": 208,
+      "width": 960,
+      "height": 170,
+      "fontSize": 80
+    },
+    "visual": {
+      "x": 60,
+      "y": 430,
+      "width": 960,
+      "height": 660,
+      "radius": 36
+    },
+    "label": {
+      "x": 60,
+      "y": 1112,
+      "width": 960,
+      "height": 32,
+      "fontSize": 24
+    },
+    "captions": {
+      "x": 70,
+      "y": 1168,
+      "width": 940,
+      "height": 100,
+      "fontSize": 44
+    },
+    "persona": {
+      "x": 0,
+      "y": 1280,
+      "width": 1080,
+      "height": 640
+    }
+  },
+  "audio": true
+}

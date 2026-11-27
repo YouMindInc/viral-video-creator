@@ -1,0 +1,110 @@
+[
+  {
+    "id": "01-hook",
+    "frame": 15,
+    "seconds": 0.5,
+    "beat": "Hook",
+    "visible_text": "18 free skills. One animation studio.",
+    "image": "analysis/keyframes/01-hook.png",
+    "visual_crop": "templates/assets/visuals/01-hook.jpg"
+  },
+  {
+    "id": "02-attribution",
+    "frame": 99,
+    "seconds": 3.3,
+    "beat": "Attribution",
+    "visible_text": "Built with Claude Opus 5.5.",
+    "image": "analysis/keyframes/02-attribution.png",
+    "visual_crop": "templates/assets/visuals/02-attribution.jpg"
+  },
+  {
+    "id": "03-repository-list",
+    "frame": 138,
+    "seconds": 4.6,
+    "beat": "Evidence",
+    "visible_text": "18 free open-source skills",
+    "image": "analysis/keyframes/03-repository-list.png",
+    "visual_crop": "templates/assets/visuals/03-repository-list.jpg"
+  },
+  {
+    "id": "04-repository-scroll",
+    "frame": 216,
+    "seconds": 7.2,
+    "beat": "Evidence continues",
+    "visible_text": "for Opus 5.5.",
+    "image": "analysis/keyframes/04-repository-scroll.png",
+    "visual_crop": "templates/assets/visuals/04-repository-scroll.jpg"
+  },
+  {
+    "id": "05-scenes",
+    "frame": 252,
+    "seconds": 8.4,
+    "beat": "Capability: scenes",
+    "visible_text": "Motion Canvas",
+    "image": "analysis/keyframes/05-scenes.png",
+    "visual_crop": "templates/assets/visuals/05-scenes.jpg"
+  },
+  {
+    "id": "06-timelines",
+    "frame": 279,
+    "seconds": 9.3,
+    "beat": "Capability: timelines",
+    "visible_text": "TweenJS",
+    "image": "analysis/keyframes/06-timelines.png",
+    "visual_crop": "templates/assets/visuals/06-timelines.jpg"
+  },
+  {
+    "id": "07-vectors",
+    "frame": 303,
+    "seconds": 10.1,
+    "beat": "Capability: vectors",
+    "visible_text": "Two.js",
+    "image": "analysis/keyframes/07-vectors.png",
+    "visual_crop": "templates/assets/visuals/07-vectors.jpg"
+  },
+  {
+    "id": "08-particles",
+    "frame": 327,
+    "seconds": 10.9,
+    "beat": "Capability: particles",
+    "visible_text": "Proton",
+    "image": "analysis/keyframes/08-particles.png",
+    "visual_crop": "templates/assets/visuals/08-particles.jpg"
+  },
+  {
+    "id": "09-export",
+    "frame": 357,
+    "seconds": 11.9,
+    "beat": "Capability: export",
+    "visible_text": "gifenc",
+    "image": "analysis/keyframes/09-export.png",
+    "visual_crop": "templates/assets/visuals/09-export.jpg"
+  },
+  {
+    "id": "10-summary",
+    "frame": 402,
+    "seconds": 13.4,
+    "beat": "Summary",
+    "visible_text": "A full animation studio in 18 repos.",
+    "image": "analysis/keyframes/10-summary.png",
+    "visual_crop": "templates/assets/visuals/10-summary.jpg"
+  },
+  {
+    "id": "11-call-to-action",
+    "frame": 492,
+    "seconds": 16.4,
+    "beat": "Call to action",
+    "visible_text": "Comment “Skill”",
+    "image": "analysis/keyframes/11-call-to-action.png",
+    "visual_crop": "templates/assets/visuals/11-call-to-action.jpg"
+  },
+  {
+    "id": "12-delivery-promise",
+    "frame": 528,
+    "seconds": 17.6,
+    "beat": "Delivery promise",
+    "visible_text": "and I’ll send you all 18.",
+    "image": "analysis/keyframes/12-delivery-promise.png",
+    "visual_crop": "templates/assets/visuals/12-delivery-promise.jpg"
+  }
+]

@@ -1,0 +1,257 @@
+{
+  "source": "source/free-skills-share.mp4",
+  "dimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "fps": 30,
+  "duration": 18.766666666666666,
+  "frameCount": 563,
+  "timingBasis": "Burned-in subtitle changes at frame boundaries; scene beats aligned to captions, not all internal visual motion.",
+  "scenes": [
+    {
+      "startFrame": 0,
+      "endFrame": 87,
+      "title": [
+        "18 free skills.",
+        "One animation studio."
+      ],
+      "label": "ANIMATION TOOLKIT",
+      "asset": "assets/visuals/01-hook.jpg",
+      "motion": "push",
+      "start": 0,
+      "end": 2.9
+    },
+    {
+      "startFrame": 87,
+      "endFrame": 119,
+      "title": [
+        "Built with",
+        "Claude Opus 5.5."
+      ],
+      "label": "ANIMATION TOOLKIT",
+      "asset": "assets/visuals/02-attribution.jpg",
+      "motion": "hold",
+      "start": 2.9,
+      "end": 3.966666666666667
+    },
+    {
+      "startFrame": 119,
+      "endFrame": 182,
+      "title": [
+        "Built with",
+        "Claude Opus 5.5."
+      ],
+      "label": "REPOSITORY LIST",
+      "asset": "assets/visuals/03-repository-list.jpg",
+      "motion": "hold",
+      "start": 3.966666666666667,
+      "end": 6.066666666666666
+    },
+    {
+      "startFrame": 182,
+      "endFrame": 241,
+      "title": [
+        "Built with",
+        "Claude Opus 5.5."
+      ],
+      "label": "REPOSITORY LIST",
+      "asset": "assets/visuals/04-repository-scroll.jpg",
+      "motion": "hold",
+      "start": 6.066666666666666,
+      "end": 8.033333333333333
+    },
+    {
+      "startFrame": 241,
+      "endFrame": 269,
+      "title": [
+        "Scenes, vectors",
+        "and more."
+      ],
+      "label": "MOTION CANVAS",
+      "asset": "assets/visuals/05-scenes.jpg",
+      "motion": "push",
+      "start": 8.033333333333333,
+      "end": 8.966666666666667
+    },
+    {
+      "startFrame": 269,
+      "endFrame": 296,
+      "title": [
+        "Scenes, vectors",
+        "and more."
+      ],
+      "label": "TWEENJS",
+      "asset": "assets/visuals/06-timelines.jpg",
+      "motion": "hold",
+      "start": 8.966666666666667,
+      "end": 9.866666666666667
+    },
+    {
+      "startFrame": 296,
+      "endFrame": 320,
+      "title": [
+        "Scenes, vectors",
+        "and more."
+      ],
+      "label": "TWO.JS",
+      "asset": "assets/visuals/07-vectors.jpg",
+      "motion": "push",
+      "start": 9.866666666666667,
+      "end": 10.666666666666666
+    },
+    {
+      "startFrame": 320,
+      "endFrame": 346,
+      "title": [
+        "Scenes, vectors",
+        "and more."
+      ],
+      "label": "PROTON",
+      "asset": "assets/visuals/08-particles.jpg",
+      "motion": "hold",
+      "start": 10.666666666666666,
+      "end": 11.533333333333333
+    },
+    {
+      "startFrame": 346,
+      "endFrame": 373,
+      "title": [
+        "Scenes, vectors",
+        "and more."
+      ],
+      "label": "GIFENC",
+      "asset": "assets/visuals/09-export.jpg",
+      "motion": "push",
+      "start": 11.533333333333333,
+      "end": 12.433333333333334
+    },
+    {
+      "startFrame": 373,
+      "endFrame": 480,
+      "title": [
+        "A full animation studio",
+        "in 18 repos."
+      ],
+      "label": "ANIMATION TOOLKIT",
+      "asset": "assets/visuals/10-summary.jpg",
+      "motion": "push",
+      "start": 12.433333333333334,
+      "end": 16
+    },
+    {
+      "startFrame": 480,
+      "endFrame": 563,
+      "title": [
+        "Get all 18",
+        "animation repos."
+      ],
+      "label": "ANIMATION TOOLKIT",
+      "asset": "assets/visuals/11-call-to-action.jpg",
+      "motion": "hold",
+      "start": 16,
+      "end": 18.766666666666666
+    }
+  ],
+  "captions": [
+    {
+      "startFrame": 0,
+      "endFrame": 31,
+      "text": "None of these animations",
+      "start": 0,
+      "end": 1.0333333333333334
+    },
+    {
+      "startFrame": 31,
+      "endFrame": 87,
+      "text": "were made in After Effects.",
+      "start": 1.0333333333333334,
+      "end": 2.9
+    },
+    {
+      "startFrame": 87,
+      "endFrame": 119,
+      "text": "They were all built with",
+      "start": 2.9,
+      "end": 3.966666666666667
+    },
+    {
+      "startFrame": 119,
+      "endFrame": 182,
+      "text": "18 free open-source skills",
+      "start": 3.966666666666667,
+      "end": 6.066666666666666
+    },
+    {
+      "startFrame": 182,
+      "endFrame": 241,
+      "text": "for Opus 5.5.",
+      "start": 6.066666666666666,
+      "end": 8.033333333333333
+    },
+    {
+      "startFrame": 241,
+      "endFrame": 269,
+      "text": "Scenes,",
+      "start": 8.033333333333333,
+      "end": 8.966666666666667
+    },
+    {
+      "startFrame": 269,
+      "endFrame": 296,
+      "text": "timelines,",
+      "start": 8.966666666666667,
+      "end": 9.866666666666667
+    },
+    {
+      "startFrame": 296,
+      "endFrame": 320,
+      "text": "vectors,",
+      "start": 9.866666666666667,
+      "end": 10.666666666666666
+    },
+    {
+      "startFrame": 320,
+      "endFrame": 346,
+      "text": "particles,",
+      "start": 10.666666666666666,
+      "end": 11.533333333333333
+    },
+    {
+      "startFrame": 346,
+      "endFrame": 373,
+      "text": "export.",
+      "start": 11.533333333333333,
+      "end": 12.433333333333334
+    },
+    {
+      "startFrame": 373,
+      "endFrame": 426,
+      "text": "A full animation design studio",
+      "start": 12.433333333333334,
+      "end": 14.2
+    },
+    {
+      "startFrame": 426,
+      "endFrame": 480,
+      "text": "in 18 repos.",
+      "start": 14.2,
+      "end": 16
+    },
+    {
+      "startFrame": 480,
+      "endFrame": 503,
+      "text": "Comment “Skill”",
+      "accent": true,
+      "start": 16,
+      "end": 16.766666666666666
+    },
+    {
+      "startFrame": 503,
+      "endFrame": 563,
+      "text": "and I’ll send you all 18.",
+      "start": 16.766666666666666,
+      "end": 18.766666666666666
+    }
+  ]
+}

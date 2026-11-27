@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editorial explainer · 模板設定</title><link rel="stylesheet" href="editor/editor.css"><script src="editor/editor.js" defer></script></head>
+<body>
+<header class="topbar"><div class="wordmark"><span class="sun">✳</span> Editorial explainer <span class="submark">影片模板</span></div><a id="studio-link" href="http://localhost:3017/#project/editorial-explainer" target="_blank" rel="noopener">開啟 HyperFrames ↗</a></header>
+<main>
+  <section class="controls">
+    <div class="intro"><p class="eyebrow">YOUR REUSABLE VIDEO FRAME</p><h1>換內容，保留你的版型。</h1><p>上方分享內容，中間字幕，下方人物。所有素材保存在這個本機專案。</p></div>
+    <div id="notice" class="notice" role="status" aria-live="polite">正在載入模板…</div>
+    <form id="form">
+      <fieldset id="fields">
+        <section class="section"><div class="section-heading"><span class="number">01</span><h2>下半部人物錄影</h2><span id="person-ratio" class="badge">33.3%</span></div>
+          <label class="dropzone" data-drop="persona"><span class="upload-title">選取人物錄影 <span>↗</span></span><span id="persona-file" class="filename">MP4 / MOV / WebM</span><input type="file" data-upload="persona" accept="video/mp4,video/quicktime,video/webm,.m4v"></label>
+          <p class="hint">片長與聲音以人物錄影為準。更換人物後，請重新提供字幕。</p>
+          <div class="two"><label>人物顯示<select data-field="persona.mode"><option value="auto">有去背結果時使用輪廓</option><option value="original">保留原始場景</option></select></label><label>裁切起點 Y · px<input data-field="persona.cropY" type="number" min="0" max="10000" step="2"></label></div>
+          <div class="two"><label>背景框下移 · px<input data-field="persona.sceneTop" type="number" min="0" max="500"></label><label>背景框左右內縮 · px<input data-field="persona.sceneInset" type="number" min="0" max="400"></label></div>
+          <p class="hint">裁切 Y 決定鏡頭取哪一段；背景框下移決定去背後頭部凸出的高度。</p>
+          <div class="inline"><button type="button" id="sam2-test" class="secondary">預覽 SAM2 去背</button><button type="button" id="prepare" class="secondary" disabled>產生完整人物圖層</button></div>
+          <p id="cutout-status" class="hint">先檢查抽樣畫面，再產生完整人物圖層。</p>
+          <div id="sam2-samples" class="samples" aria-label="SAM2 抽樣預覽"></div>
+          <details id="job-details"><summary>去背處理狀態</summary><pre id="job-log">使用 tools/sam2 已安裝的模型。</pre></details>
+        </section>
+        <section class="section"><div class="section-heading"><span class="number">02</span><h2>上半部產品／分享動畫</h2></div>
+          <label class="dropzone" data-drop="visual"><span class="upload-title">選取上方內容影片 <span>↗</span></span><span id="visual-file" class="filename">產品演示、螢幕錄影、分享動畫</span><input type="file" data-upload="visual" accept="video/mp4,video/quicktime,video/webm,.m4v"></label>
+          <div class="two"><label>顯示方式<select data-field="visual.fit"><option value="contain">完整顯示，保留比例</option><option value="cover">填滿框，裁切邊緣</option></select></label><label>內容標籤<input data-field="visual.label" maxlength="100" placeholder="PRODUCT DEMO"></label></div>
+          <p class="hint">上方影片保持靜音；若比人物短，結尾停在最後一幀。</p>
+        </section>
+        <section class="section"><div class="section-heading"><span class="number">03</span><h2>品牌、標題與字幕</h2></div>
+          <label>品牌名稱<input data-field="brand" maxlength="100"></label>
+          <div class="two"><label>標題第一行<input data-field="headline.0" maxlength="100"></label><label>標題第二行<input data-field="headline.1" maxlength="100"></label></div>
+          <div class="subtitle-upload"><label class="file-button">選取 SRT 字幕<input type="file" data-upload="captions" accept=".srt"></label><span id="captions-file" class="filename">未選取字幕</span><button type="button" id="clear-captions" class="text-button">清除</button></div>
+          <label>未提供 SRT 時顯示的字幕<input data-field="fallbackCaption" maxlength="300" placeholder="輸入這支影片的重點"></label>
+          <div class="colors"><label>背景<input data-field="background" type="color"></label><label>文字<input data-field="ink" type="color"></label><label>重點色<input data-field="accent" type="color"></label></div>
+        </section>
+        <section class="section"><div class="section-heading"><span class="number">04</span><h2>關鍵元素的位置</h2><button type="button" id="reset-layout" class="text-button">恢復原版比例</button></div>
+          <label>調整元素<select id="layout-target"><option value="brand">品牌</option><option value="headline">主標題</option><option value="visual">上方內容影片</option><option value="label">內容標籤</option><option value="captions">字幕</option><option value="persona">下方人物</option></select></label>
+          <div class="four"><label>X · px<input type="number" data-layout="x" min="0" max="1080"></label><label>Y · px<input type="number" data-layout="y" min="0" max="1920"></label><label>寬 · px<input type="number" data-layout="width" min="40" max="1080"></label><label>高 · px<input type="number" data-layout="height" min="20" max="1920"></label></div>
+          <div class="two"><label id="font-control">字體大小 · px<input type="number" data-layout="fontSize" min="16" max="160"></label><label id="radius-control">圓角 · px<input type="number" data-layout="radius" min="0" max="250"></label></div>
+          <p class="hint">左上角為 (0, 0)，畫布為 1080 × 1920。人物縮放會保留比例；預設佔底部三分之一。</p>
+        </section>
+      </fieldset>
+      <footer class="savebar"><span id="save-state">尚未變更</span><button id="save" type="submit" class="primary">儲存並套用</button></footer>
+    </form>
+  </section>
+  <aside class="preview-panel"><div class="preview-sticky"><div class="preview-heading"><span>版型預覽</span><label class="toggle"><input type="checkbox" id="guides" checked>位置框線</label></div><div class="preview-window"><iframe id="preview" src="/layout-preview" title="9:16 版型靜態預覽"></iframe></div><div class="preview-footer"><span>1080 × 1920</span><span id="duration">— 秒</span></div><p class="preview-note">這裡顯示 1 秒處的靜態版型。<br>播放影片與時間軸請開啟 HyperFrames。</p><p id="studio-status" class="hint"></p></div></aside>
+</main>
+</body></html>

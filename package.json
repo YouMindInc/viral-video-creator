@@ -1,0 +1,28 @@
+{
+  "name": "viral-video-creator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "templates/*"
+  ],
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "start": "pnpm dev:editorial-explainer",
+    "generate:editorial-explainer": "node templates/editorial-explainer/scripts/generate.mjs",
+    "clean:editorial-explainer": "node templates/editorial-explainer/scripts/clean.mjs",
+    "dev:editorial-explainer": "node templates/editorial-explainer/scripts/template-editor.mjs",
+    "preview:editorial-explainer": "node templates/editorial-explainer/scripts/hyperframes-project.mjs start",
+    "build:editorial-explainer": "pnpm --filter @viral-video-creator/editorial-explainer build",
+    "render:editorial-explainer": "pnpm --filter @viral-video-creator/editorial-explainer render",
+    "check:editorial-explainer": "pnpm --filter @viral-video-creator/editorial-explainer check",
+    "sam2:test": "pnpm --filter @viral-video-creator/editorial-explainer sam2:test",
+    "sam2:prepare": "pnpm --filter @viral-video-creator/editorial-explainer sam2:prepare",
+    "setup:sam2": "bash tools/sam2/Setup.command",
+    "verify": "node scripts/verify-monorepo.mjs"
+  },
+  "packageManager": "pnpm@10.14.0"
+}

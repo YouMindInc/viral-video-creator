@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,initial-scale=1">
+  <title>News channel</title>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: 'News Serif'; src: url('assets/fonts/Georgia.ttf'); font-weight: 400; }
+    @font-face { font-family: 'News Serif'; src: url('assets/fonts/Georgia-Bold.ttf'); font-weight: 700; }
+    @font-face { font-family: 'News Sans'; src: url('assets/fonts/Arial.ttf'); font-weight: 400; }
+    @font-face { font-family: 'News Sans'; src: url('assets/fonts/Arial-Bold.ttf'); font-weight: 700 900; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #E9EAE1; }
+    #news-channel { width: 1080px; height: 1920px; overflow: hidden; color: #14160F; background: #E9EAE1; font-family: 'News Sans', sans-serif; }
+    .scene-content { display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); width: 100%; height: 100%; padding: 0; }
+    .positioned { grid-area: 1 / 1; align-self: start; justify-self: start; min-width: 0; min-height: 0; }
+    #brand { display: flex; align-items: center; justify-content: center; gap: 14px; font-family: 'News Serif', serif; font-weight: bold; line-height: 1.2; }
+    #brand svg { width: 1.1em; height: 1.1em; flex: none; color: #C77C63; }
+    #headline { margin: 0; text-align: center; font-family: 'News Serif', serif; font-weight: 400; line-height: 1.0625; letter-spacing: -0.035em; }
+    #headline span { display: block; white-space: nowrap; }
+    #visual-shell { position: relative; overflow: hidden; background: #DDE2D3; box-shadow: 0 10px 22px #20261720; }
+    #visual-poster, .visual-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    #visual-poster { z-index: 0; } .visual-video { z-index: 1; }
+    #visual-label { text-align: center; line-height: 1.33; font-weight: bold; letter-spacing: 1px; color: #62675B; }
+    #persona { position: relative; z-index: 2; }
+    #persona-inner { position: relative; width: 1080px; height: 640px; transform: scale(1); transform-origin: top left; }
+    #scene-window { position: absolute; left: 64px; top: 140px; width: 952px; height: 500px; border-radius: 64px 64px 0 0; overflow: hidden; z-index: 0; }
+    #persona-scene { position: absolute; max-width: none; object-fit: fill; }
+    #persona-cutout { position: absolute; inset: 0; width: 1080px; height: 640px; object-fit: fill; z-index: 1; }
+    #persona-overlay { position: absolute; left: 0; top: -1280px; width: 1080px; height: 1920px; object-fit: fill; z-index: 1; }
+    #subtitle-zone { position: relative; z-index: 3; }
+    .caption { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; font-size: inherit; }
+    .caption-text { max-width: 100%; padding: 10px 23px 12px; border-radius: 15px; background: #50514D; color: #FFF; font-size: inherit; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
+    .caption-text.accent { background: #C77C63; color: #171910; }
+    #brand{margin-left:70px;margin-top:120px;width:940px;height:48px;font-size:40px;}
+#headline{margin-left:60px;margin-top:208px;width:960px;height:170px;font-size:80px;}
+#visual-shell{margin-left:60px;margin-top:430px;width:960px;height:660px;border-radius:36px;}
+#visual-label{margin-left:60px;margin-top:1112px;width:960px;height:32px;font-size:24px;}
+#subtitle-zone{margin-left:70px;margin-top:1168px;width:940px;height:100px;font-size:44px;}
+#persona{margin-left:0px;margin-top:1280px;width:1080px;height:640px;}
+  </style>
+</head>
+<body>
+  <div id="news-channel" data-composition-id="news-channel" data-start="0" data-duration="20.36" data-width="1080" data-height="1920">
+    <div class="scene-content">
+      <div id="brand" class="positioned"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round"><path d="M24 3v42M3 24h42M9.2 9.2l29.6 29.6M9.2 38.8 38.8 9.2M16 4.6l16 38.8M4.6 16l38.8 16M4.6 32 43.4 16M16 43.4 32 4.6"/></g></svg><span>YOUR BRAND</span></div>
+      <h1 id="headline" class="positioned"><span>18 free skills.</span><span>One animation studio.</span></h1>
+      <div id="visual-shell" class="positioned"><img id="visual-poster" class="clip" src="assets/visuals/content-last.jpg" alt="Visual content" data-start="0" data-duration="20.36" data-track-index="0"><video id="visual-video" class="clip visual-video" src="assets/visuals/content.mp4" data-start="0" data-duration="18.766667" data-track-index="1" muted playsinline preload="auto"></video></div>
+      <div id="visual-label" class="positioned">ANIMATION TOOLKIT</div>
+      <div id="persona" class="positioned" data-layout-allow-overlap>
+        <div id="persona-inner" data-layout-allow-overflow><div id="scene-window" data-layout-allow-overflow></div><video id="persona-overlay" class="clip" data-start="0" data-duration="20.36" data-media-start="0" muted playsinline preload="auto" src="assets/persona/sam2-88e005db878635b4.webm" data-track-index="4" data-layout-allow-overflow></video></div>
+      </div>
+      <div id="subtitle-zone" class="positioned" data-track-kind="captions"><div id="caption-0" class="clip caption" data-start="0" data-duration="2.01" data-track-index="6"><span class="caption-text">None of these animations were</span></div>
+<div id="caption-1" class="clip caption" data-start="2.01" data-duration="1.51" data-track-index="6"><span class="caption-text">made in After Effects.</span></div>
+<div id="caption-2" class="clip caption" data-start="3.52" data-duration="1.8" data-track-index="6"><span class="caption-text">They were all built with 18</span></div>
+<div id="caption-3" class="clip caption" data-start="5.32" data-duration="3.4" data-track-index="6"><span class="caption-text">free open-source skills for Opus 5.5.</span></div>
+<div id="caption-4" class="clip caption" data-start="8.72" data-duration="2.64" data-track-index="6"><span class="caption-text">Scenes, Timelines, Vectors,</span></div>
+<div id="caption-5" class="clip caption" data-start="11.36" data-duration="1.76" data-track-index="6"><span class="caption-text">Particles, Export,</span></div>
+<div id="caption-6" class="clip caption" data-start="13.12" data-duration="2.21" data-track-index="6"><span class="caption-text">a full animation design studio</span></div>
+<div id="caption-7" class="clip caption" data-start="15.33" data-duration="1.39" data-track-index="6"><span class="caption-text">in 18 repos.</span></div>
+<div id="caption-8" class="clip caption" data-start="16.72" data-duration="2.26" data-track-index="6"><span class="caption-text accent">Comment &quot;Skill&quot; and I'll send</span></div>
+<div id="caption-9" class="clip caption" data-start="18.98" data-duration="1.38" data-track-index="6"><span class="caption-text">you all 18.</span></div></div>
+    </div>
+    <audio id="persona-audio" class="clip" src="source/character-talking.mp4" data-start="0" data-duration="20.36" data-track-index="7" data-volume="1" preload="auto"></audio>
+  </div>
+  <script>
+    // Fit user-supplied text before constructing the synchronous GSAP timeline.
+    function fitLine(element, maxWidth) {
+      var style = getComputedStyle(element);
+      var size = parseFloat(style.fontSize);
+      var canvas = document.createElement('canvas');
+      var context = canvas.getContext('2d');
+      while (size > 16) {
+        context.font = style.fontWeight + ' ' + size + 'px ' + style.fontFamily;
+        var spacing = parseFloat(style.letterSpacing) || 0;
+        if (context.measureText(element.textContent).width + Math.max(0, element.textContent.length - 1) * spacing <= maxWidth) break;
+        size -= 1;
+      }
+      element.style.fontSize = size + 'px';
+    }
+    document.querySelectorAll('#headline span').forEach(function(el) { fitLine(el, el.parentElement.clientWidth); });
+    document.querySelectorAll('.caption-text').forEach(function(el) { fitLine(el, document.getElementById('subtitle-zone').clientWidth - 46); });
+    fitLine(document.querySelector('#brand span'), document.getElementById('brand').clientWidth - 70);
+    fitLine(document.getElementById('visual-label'), document.getElementById('visual-label').clientWidth);
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+    tl.from('#brand', { opacity: 0, scale: 0.98, duration: 0.32, ease: 'sine.out' }, 0.1);
+    tl.from('#headline', { opacity: 0, y: 16, duration: 0.42, ease: 'power3.out' }, 0.16);
+    tl.from('#visual-shell', { opacity: 0, scale: 0.99, duration: 0.4, ease: 'expo.out' }, 0.2);
+    tl.from('#visual-label', { opacity: 0, x: 8, duration: 0.3, ease: 'power2.out' }, 0.26);
+    tl.from('#persona', { opacity: 0, y: 16, duration: 0.42, ease: 'power3.out' }, 0.12);
+    tl.from('#caption-0 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},0);tl.set('#caption-0 .caption-text',{opacity:0},2.01);
+tl.from('#caption-1 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},2.01);tl.set('#caption-1 .caption-text',{opacity:0},3.52);
+tl.from('#caption-2 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},3.52);tl.set('#caption-2 .caption-text',{opacity:0},5.32);
+tl.from('#caption-3 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},5.32);tl.set('#caption-3 .caption-text',{opacity:0},8.72);
+tl.from('#caption-4 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},8.72);tl.set('#caption-4 .caption-text',{opacity:0},11.36);
+tl.from('#caption-5 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},11.36);tl.set('#caption-5 .caption-text',{opacity:0},13.12);
+tl.from('#caption-6 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},13.12);tl.set('#caption-6 .caption-text',{opacity:0},15.33);
+tl.from('#caption-7 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},15.33);tl.set('#caption-7 .caption-text',{opacity:0},16.72);
+tl.from('#caption-8 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},16.72);tl.set('#caption-8 .caption-text',{opacity:0},18.98);
+tl.from('#caption-9 .caption-text', {opacity:0,y:4,duration:0.08,ease:'power2.out'},18.98);tl.set('#caption-9 .caption-text',{opacity:0},20.36);
+    window.__timelines['news-channel'] = tl;
+  </script>
+</body>
+</html>

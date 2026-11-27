@@ -1,0 +1,72 @@
+{
+  "name": "news-channel",
+  "brand": "YOUR BRAND",
+  "headline": [
+    "18 free skills.",
+    "One animation studio."
+  ],
+  "visual": {
+    "video": "assets/visuals/content.mp4",
+    "poster": "assets/visuals/content-last.jpg",
+    "label": "ANIMATION TOOLKIT",
+    "fit": "contain"
+  },
+  "persona": {
+    "source": "source/character-talking.mp4",
+    "cropY": 450,
+    "width": 1080,
+    "height": 640,
+    "sceneTop": 140,
+    "sceneInset": 64,
+    "cornerRadius": 64,
+    "mode": "auto"
+  },
+  "captions": "source/character-talking.srt",
+  "fallbackCaption": "Your subtitle goes here",
+  "background": "#E9EAE1",
+  "ink": "#14160F",
+  "accent": "#C77C63",
+  "layout": {
+    "brand": {
+      "x": 70,
+      "y": 120,
+      "width": 940,
+      "height": 48,
+      "fontSize": 40
+    },
+    "headline": {
+      "x": 60,
+      "y": 208,
+      "width": 960,
+      "height": 170,
+      "fontSize": 80
+    },
+    "visual": {
+      "x": 60,
+      "y": 430,
+      "width": 960,
+      "height": 660,
+      "radius": 36
+    },
+    "label": {
+      "x": 60,
+      "y": 1112,
+      "width": 960,
+      "height": 32,
+      "fontSize": 24
+    },
+    "captions": {
+      "x": 70,
+      "y": 1168,
+      "width": 940,
+      "height": 100,
+      "fontSize": 44
+    },
+    "persona": {
+      "x": 0,
+      "y": 1280,
+      "width": 1080,
+      "height": 640
+    }
+  }
+}
