@@ -1,0 +1,112 @@
+{
+  "voice": { "speaker": "Samantha", "rate": 185, "gap": 0.14, "volume": 1 },
+  "music": { "file": "", "volume": 0.12 },
+  "sfx": true,
+  "scenes": [
+    {
+      "type": "hook", "tag": "BREAKING · AI", "subject": "Claude", "kicker": "just", "verb": "killed", "target": "video editing",
+      "say": "Claude just killed {video editing}."
+    },
+    {
+      "type": "reveal", "title": "Viral {Video} Creator", "media": "assets/sample/templates-lineup.jpg",
+      "stats": ["6 templates", "HyperFrames", "Runs locally"],
+      "say": "This is {Viral Video Creator}."
+    },
+    {
+      "type": "count", "stamp": "FREE", "number": 6, "label": "templates",
+      "chips": ["01 prompt-recipe", "02 recipe-advanced", "03 quickcut", "04 swap-list", "05 feature-drop", "06 explainer"],
+      "say": "It's free, and it ships {six templates}."
+    },
+    {
+      "type": "feature", "title": "Prompt Recipe", "tag": "prompt-recipe",
+      "panel": { "kind": "media", "src": "assets/sample/prompt-recipe.jpg" },
+      "say": ["Template one turns any AI result into a {prompt recipe}.", "Prompt, reference and result, {side by side}."]
+    },
+    {
+      "type": "feature", "title": "Quick Cuts", "tag": "quickcut-tutorial",
+      "panel": {
+        "kind": "timeline", "title": "Cut list", "meta": "word-timed",
+        "rows": [
+          { "time": "0:00.0", "text": "Hook over the result" },
+          { "time": "0:02.5", "text": "Face, punch-in" },
+          { "time": "0:04.0", "text": "Split: screen and face" },
+          { "time": "0:06.5", "text": "Long pause", "cut": true },
+          { "time": "0:09.0", "text": "B-roll of the result" },
+          { "time": "0:12.0", "text": "Comment keyword" }
+        ]
+      },
+      "say": ["Template two cuts a talking head into {fast scenes}.", "Every caption is {timed to the word}."]
+    },
+    {
+      "type": "feature", "title": "Swap List", "tag": "swap-list",
+      "panel": {
+        "kind": "list", "title": "Paid → free", "meta": "6 apps", "highlight": 2,
+        "rows": ["Loom → Cap", "Figma → Penpot", "Notion → AppFlowy", "Calendly → Cal.com", "Intercom → Chatwoot", "Zoom → Jitsi Meet"]
+      },
+      "say": ["Template three counts down {paid apps},", "and the free ones that replace them."]
+    },
+    {
+      "type": "feature", "title": "Agent Workflow", "tag": "AGENT.md",
+      "panel": {
+        "kind": "board",
+        "columns": [
+          { "title": "You send", "cards": ["Photo", "Clip", "Script"] },
+          { "title": "Agent", "cards": ["Builds a preview"] },
+          { "title": "You", "cards": ["Notes"] },
+          { "title": "Render", "cards": ["MP4"] }
+        ],
+        "reply": { "label": "Your note", "text": "Looks great. Render it." }
+      },
+      "say": ["You {only send material}.", "The agent builds a {preview}, then renders on your word."]
+    },
+    {
+      "type": "feature", "title": "Week of Posts", "tag": "6 formats",
+      "panel": {
+        "kind": "week", "done": "Week planned",
+        "blocks": [
+          { "day": 0, "row": 0, "text": "Recipe", "hot": true },
+          { "day": 1, "row": 1, "text": "Quick cut" },
+          { "day": 2, "row": 0, "text": "Swap list", "hot": true },
+          { "day": 3, "row": 2, "text": "Feature drop" },
+          { "day": 4, "row": 1, "text": "Recipe+" },
+          { "day": 5, "row": 0, "text": "Explainer", "hot": true },
+          { "day": 6, "row": 3, "text": "Replies" }
+        ]
+      },
+      "say": "Six formats make a {full week} of posts."
+    },
+    {
+      "type": "teaser", "kicker": "But the best part?", "lines": ["{Zero}", "editing"], "tag": "you never open an editor",
+      "say": "But the best part? {Zero editing.}"
+    },
+    {
+      "type": "rank", "title": "Send {anything}", "meta": "WHAT YOU SEND → WHAT YOU GET",
+      "rows": [
+        { "value": "Photo", "title": "Prompt Recipe", "by": "photo + AI result video", "badge": "Kitten demo" },
+        { "value": "Clip", "title": "Quick-Cut Tutorial", "by": "talking head + screen recordings" },
+        { "value": "List", "title": "Swap List", "by": "paid apps and free swaps" },
+        { "value": "Script", "title": "Feature Drop", "by": "this video" }
+      ],
+      "say": "Send a photo, a clip, a list or a script, and the agent {picks the format}."
+    },
+    {
+      "type": "steps", "title": "Setup in {3} steps", "steps": ["Claude Code", "Paste link", "Send material"],
+      "terminal": {
+        "title": "Claude Code — viral-video-creator",
+        "lines": [
+          { "text": "Welcome to Claude Code", "kind": "dim" },
+          { "text": "git clone …/viral-video-creator", "kind": "cmd" },
+          { "text": "✓ pnpm setup · 6 templates ready", "kind": "ok" },
+          { "text": "make a swap list from these 6 apps", "kind": "cmd" }
+        ],
+        "cards": [{ "label": "PREVIEW", "score": "ready", "text": "localhost:3022 · swap-list · 42.8 s", "best": true }]
+      },
+      "done": "Done",
+      "say": ["Setup takes {three steps}.", "Open {Claude Code},", "paste the repo link,", "and send your {material}."]
+    },
+    {
+      "type": "cta", "comment": "Comment", "keyword": "VIDEO", "line": "and I'll send you the repo", "note": "Full setup ↓ sent by DM",
+      "say": "Comment {VIDEO}, and I'll send you the repo."
+    }
+  ]
+}

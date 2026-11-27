@@ -17,6 +17,15 @@ importers:
         specifier: 0.9.98
         version: 0.9.98
 
+  templates/feature-drop:
+    dependencies:
+      gsap:
+        specifier: 3.14.2
+        version: 3.14.2
+      hyperframes:
+        specifier: 0.9.98
+        version: 0.9.98
+
   templates/prompt-recipe:
     dependencies:
       gsap:
@@ -36,6 +45,15 @@ importers:
         version: 0.9.98
 
   templates/quickcut-tutorial:
+    dependencies:
+      gsap:
+        specifier: 3.14.2
+        version: 3.14.2
+      hyperframes:
+        specifier: 0.9.98
+        version: 0.9.98
+
+  templates/swap-list:
     dependencies:
       gsap:
         specifier: 3.14.2

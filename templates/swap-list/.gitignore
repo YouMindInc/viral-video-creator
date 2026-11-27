@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+.hyperframes/
+.cache/
+.thumbnails/
+.transcode-cache/
+.waveform-cache/
+assets/vendor/
+assets/inputs/
+renders/
+*.tmp
+assets/voice/
+assets/stills/

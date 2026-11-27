@@ -15,7 +15,7 @@ function run(bin, args, cwd = root) {
   if (result.status !== 0) process.exit(result.status || 1);
 }
 run(process.execPath, ['--test', 'scripts/setup.test.mjs']);
-for (const template of ['editorial-explainer', 'prompt-recipe', 'prompt-recipe-advanced', 'quickcut-tutorial']) {
+for (const template of ['editorial-explainer', 'prompt-recipe', 'prompt-recipe-advanced', 'quickcut-tutorial', 'swap-list', 'feature-drop']) {
   for (const command of ['build', 'verify']) run('pnpm', ['--filter', '@viral-video-creator/' + template, command]);
   run(hf, ['lint', 'templates/' + template, '--json']);
 }

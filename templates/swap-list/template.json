@@ -1,0 +1,72 @@
+{
+  "voice": { "speaker": "Samantha", "rate": 190, "gap": 0.12, "volume": 1 },
+  "music": { "file": "", "volume": 0.12 },
+  "sfx": true,
+  "avatar": "mascot",
+  "hook": {
+    "title": ["Stop paying for", "{%n apps}", "right now"],
+    "say": { "text": "Stop paying for these {six apps}.", "mood": "wow" }
+  },
+  "grid": {
+    "title": "Every one is {free on GitHub}",
+    "sticker": "ALL FREE ON GITHUB",
+    "say": "Every single one has a {free version} on GitHub."
+  },
+  "chapters": [
+    {
+      "name": "Create",
+      "say": "Three for {making things}.",
+      "apps": [
+        {
+          "paid": "Loom",
+          "free": { "name": "Cap", "url": "github.com/CapSoftware/Cap", "glyph": "screen" },
+          "chips": ["Screen recording", "Share links"],
+          "say": ["{Loom}.", "Swap it for {Cap}.", "Record your screen, then {share a link}."]
+        },
+        {
+          "paid": "Figma",
+          "free": { "name": "Penpot", "url": "github.com/penpot/penpot", "glyph": "pen" },
+          "chips": ["Design", "Prototypes", "In the browser"],
+          "say": ["{Figma}.", "Swap it for {Penpot}.", "Design and {prototype}, right in your browser."]
+        },
+        {
+          "paid": "Notion",
+          "free": { "name": "AppFlowy", "url": "github.com/AppFlowy-IO/AppFlowy", "glyph": "doc" },
+          "chips": ["Notes", "Docs", "Local AI"],
+          "say": ["{Notion}.", "Swap it for {AppFlowy}.", "Notes, docs, and it even runs {local AI}."]
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "say": "And three for {running the business}.",
+      "apps": [
+        {
+          "paid": "Calendly",
+          "free": { "name": "Cal.com", "url": "github.com/calcom/cal.com", "glyph": "calendar" },
+          "chips": ["Booking pages", "Calendar sync"],
+          "say": ["{Calendly}.", { "text": "Swap it for {Cal.com}.", "speak": "Swap it for Cal dot com." }, "{Booking pages} that sync with your calendar."]
+        },
+        {
+          "paid": "Intercom",
+          "free": { "name": "Chatwoot", "url": "github.com/chatwoot/chatwoot", "glyph": "chat" },
+          "chips": ["Live chat", "Shared inbox"],
+          "say": ["{Intercom}.", "Swap it for {Chatwoot}.", "Live chat, and every message in {one inbox}."]
+        },
+        {
+          "paid": "Zoom",
+          "free": { "name": "Jitsi Meet", "url": "github.com/jitsi/jitsi-meet", "glyph": "video" },
+          "chips": ["Video calls", "Self-host"],
+          "say": ["{Zoom}.", "Swap it for {Jitsi Meet}.", "Video calls you can {host yourself}."]
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "title": ["Which one would you", "{swap first}?"],
+    "pick": 2,
+    "save": "Save this",
+    "comment": "Swapping Notion first!",
+    "say": ["Which one would you {swap first}?", "{Save this}, and tell me in the {comments}."]
+  }
+}

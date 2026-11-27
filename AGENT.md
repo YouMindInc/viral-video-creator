@@ -1,10 +1,12 @@
 # AGENT.md — operating guide for `viral-video-creator`
 
-The repo has three templates. Pick one from the user's material, or ask once if it's unclear.
+The repo has six templates. Pick one from the user's material, or ask once if it's unclear.
 - **editorial-explainer:** sections 1–4 below.
 - **prompt-recipe:** an AI result shown as a recipe card. See "Prompt Recipe" near the end.
 - **prompt-recipe-advanced:** the same poster, then a YouMind end card with a spoken comment line. See "Prompt Recipe Advanced" near the end.
 - **quickcut-tutorial:** a talking-head tutorial with fast cutaways. See "Quick-Cut Tutorial" near the end.
+- **swap-list:** a faceless countdown of paid apps and their free swaps, made from text only. See "Swap List" near the end.
+- **feature-drop:** a faceless "BREAKING: X just killed Y" product tour with numbered feature panels, made from a script and screenshots. See "Feature Drop" near the end.
 
 The editorial-explainer template turns two videos and a few lines of text into a finished 1080×1920 short:
 **top** = product / share-content video, **middle** = headline and subtitles, **bottom** = a talking person,
@@ -334,6 +336,94 @@ The live player is `--port 3020`. Read the contact sheet and check:
 Then show the user.
 
 **Final:** `pnpm render:quickcut-tutorial` (a 20 s video renders in about 30 s).
+
+## Swap List (`templates/swap-list`)
+
+A faceless countdown: "Stop paying for N apps", one swap card per app, chapter cards, and a "which one would you swap first?" ending. It needs no footage:
+- the voice-over is macOS text-to-speech, one line at a time;
+- captions, card animations, sound effects and the mascot's expressions are timed from those lines.
+
+The layout per scene is in `templates/swap-list/BREAKDOWN.md`.
+
+**Ask for:**
+1. the apps (2–12): paid name → free name, the GitHub URL, and up to 4 features each, grouped into 1–4 chapters (required);
+2. the voice language. Write the lines yourself from the list unless the user gives a script;
+3. optionally: the app they'd swap first, the save-button text, a sample comment, their own avatar PNG, app icons, a voice recording per line, and music.
+
+**Build it (no user input):**
+1. Write `templates/swap-list/template.json`.
+   - **Each app's `say`** has three lines: the paid name ("{Loom}."), the swap ("Swap it for {Cap}."), and one line covering its features.
+   - **Pronunciation:** put `{ "text": "...", "speak": "..." }` on anything TTS would mispronounce (e.g. "Cal dot com").
+   - **Free-app icons:** for `glyph`, pick from screen, image, mic, doc, tasks, calendar, chat, video, pen, bolt, wave, chart, code, globe, mail, lock.
+   - **Chinese:** `voice.speaker: "Meijia"`.
+2. Run `pnpm build:swap-list`. It prints the length, scene count and line count. The first build synthesises every line, which takes about 20 s; later builds use the cache.
+
+**Preview:**
+- **Stills:** take one per scene, near its end, so the stamp has landed: `node_modules/.bin/hyperframes snapshot templates/swap-list --at <times> --no-end -o "$RUN"`.
+- **Live player:** `--port 3022`.
+- **Check that:**
+  - names fit;
+  - captions sit above the mascot;
+  - the outro bubble stays on screen.
+
+**Final:** `pnpm render:swap-list`.
+
+## Feature Drop (`templates/feature-drop`)
+
+A faceless product tour in a dark ember style. It is built from an ordered list of `scenes`:
+
+| Scene | What it shows |
+| --- | --- |
+| `hook` | X just killed Y |
+| `reveal` | screenshot + stats |
+| `count` | FREE stamp + number + chips |
+| `feature` | auto-numbered; one panel each |
+| `teaser` | "but the best part…" |
+| `rank` | proof rows |
+| `steps` | setup in N steps, with a terminal |
+| `cta` | comment keyword |
+
+Each `feature` uses one panel:
+- `media`: a screenshot or video;
+- `list`;
+- `timeline`: a cut list;
+- `board`: a kanban;
+- `week`: a weekly planner;
+- `terminal`.
+
+Panel fields are in `templates/feature-drop/README.md`; the source analysis is in `BREAKDOWN.md`.
+
+**Ask for:**
+1. what the product or tool is, and the claim for the hook (required);
+2. its features: for each, a short title, a command or tag, and what it does (required);
+3. screenshots or screen recordings, if they have them;
+4. setup steps;
+5. the comment keyword (required).
+
+**Build it (no user input):**
+1. Write the script into `scenes`, one to three spoken lines per scene.
+2. Pick a panel per feature:
+
+   | The feature… | Panel |
+   | --- | --- |
+   | is visual, or you have a screenshot | `media` |
+   | ranks or picks from options | `list` with `highlight` |
+   | edits or schedules in time | `timeline` |
+   | sorts messages or tasks | `board` |
+   | plans days | `week` |
+   | runs as a command | `terminal` |
+
+3. Never invent numbers for `rank` or `stats`. Ask, or use words instead of figures.
+4. Run `pnpm build:feature-drop`.
+
+**Preview:**
+- **Stills:** take one per scene, about 0.15 s before each scene ends. The build's `metadata.scenes` has the times.
+- **Live player:** `--port 3023`.
+- **Check that:**
+  - titles and panel rows fit;
+  - videos sit inside their panel.
+
+**Final:** `pnpm render:feature-drop`.
 
 ## Manual SAM2 (face not detected, wrong mask, person size)
 
