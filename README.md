@@ -4,7 +4,7 @@
 
 ## 模板一覽
 
-<img width="788" height="504" alt="模板預覽" src="docs/templates-preview.gif" />
+<img width="1296" height="504" alt="模板預覽" src="docs/templates-preview.gif" />
 
 | 模板 | 內容 |
 | --- | --- |
@@ -12,6 +12,8 @@
 | [prompt-recipe](templates/prompt-recipe/README.md) | Prompt 卡片＋參考圖→模型名稱→AI 生成影片，排成一張配方海報 |
 | [prompt-recipe-advanced](templates/prompt-recipe-advanced/README.md) | 同一張配方海報，影片播完接 YouMind 結尾卡與留言引導旁白 |
 | [quickcut-tutorial](templates/quickcut-tutorial/README.md) | 自拍講解為主軸，每 1.5–4 秒切到螢幕錄影、AI 成果或大字標題 |
+| [swap-list](templates/swap-list/README.md) | 無人臉倒數：付費 App 逐一換成 GitHub 免費版，只要文字，旁白自動產生 |
+| [feature-drop](templates/feature-drop/README.md) | 無人臉功能爆料：BREAKING 開場、編號功能面板、三步設定、留言關鍵字 |
 
 ```text
 viral-video-creator/
