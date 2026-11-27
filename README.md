@@ -2,6 +2,17 @@
 
 影片製作 monorepo。`editorial-explainer` 是第一個可重複使用的 HyperFrames 模板，搭配 Apple Core ML SAM2 人物去背工具。
 
+## 模板一覽
+
+<img width="788" height="504" alt="模板預覽" src="docs/templates-preview.gif" />
+
+| 模板 | 內容 |
+| --- | --- |
+| [editorial-explainer](templates/editorial-explainer/README.md) | 上方產品影片、中間標題與字幕、下方 SAM2 去背人物凸出圓角框 |
+| [prompt-recipe](templates/prompt-recipe/README.md) | Prompt 卡片＋參考圖→模型名稱→AI 生成影片，排成一張配方海報 |
+| [prompt-recipe-advanced](templates/prompt-recipe-advanced/README.md) | 同一張配方海報，影片播完接 YouMind 結尾卡與留言引導旁白 |
+| [quickcut-tutorial](templates/quickcut-tutorial/README.md) | 自拍講解為主軸，每 1.5–4 秒切到螢幕錄影、AI 成果或大字標題 |
+
 ```text
 viral-video-creator/
 ├── templates/editorial-explainer/       HyperFrames composition、素材設定頁、範例影片
