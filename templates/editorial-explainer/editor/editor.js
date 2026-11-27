@@ -76,7 +76,7 @@ function refreshJob(next) {
 }
 async function poll() {
   try { state = await api('state'); refreshJob(state); }
-  catch { $('#studio-status').textContent = '設定頁服務已中斷，請重新開啟 Launch.command。'; }
+  catch { $('#studio-status').textContent = '設定頁服務已中斷，請在 Terminal 重新執行 pnpm start。'; }
 }
 async function beginJob(kind) {
   try {

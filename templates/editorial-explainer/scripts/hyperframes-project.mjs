@@ -166,7 +166,7 @@ export function build(input = readConfig(), saveConfig = false, { write = true }
   const metadata = { duration, width: 1080, height: 1920, captions, personaPrepared: ready, personaMode: sam2 ? 'sam2' : useCutout ? 'cutout' : 'original', runtimeInstalled: fs.existsSync(hf), visualDuration, crop, layout: config.layout, audio: info.hasAudio };
   if (!write) return { config, metadata, html };
   const gsap = dependencyFile('gsap/dist/gsap.min.js', 'node_modules/gsap/dist/gsap.min.js');
-  if (!fs.existsSync(gsap)) throw new Error('請先執行 Launch.command 完成初次安裝。');
+  if (!fs.existsSync(gsap)) throw new Error('請先在根目錄執行 pnpm install 完成初次安裝。');
   fs.mkdirSync(path.join(root, 'assets/vendor'), { recursive: true });
   fs.copyFileSync(gsap, path.join(root, 'assets/vendor/gsap.min.js'));
   fs.writeFileSync(path.join(root, 'index.html.tmp'), html);
@@ -177,7 +177,7 @@ export function build(input = readConfig(), saveConfig = false, { write = true }
   return { config, metadata };
 }
 export function prepare(config = readConfig()) {
-  if (!fs.existsSync(hf)) throw new Error('HyperFrames is not installed. Run Launch.command.');
+  if (!fs.existsSync(hf)) throw new Error('HyperFrames is not installed. Run pnpm install.');
   if (prepared(config)) { console.log('Reusing the prepared person cutout.'); return; }
   const source = asset(config.persona.source), info = probe(source), crop = cropFor(info, config.persona);
   fs.mkdirSync(personaDir, { recursive: true });

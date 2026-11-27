@@ -22,8 +22,7 @@ viral-video-creator/
 ├── scripts/verify-monorepo.mjs
 ├── package.json              pnpm workspace 與統一指令
 ├── pnpm-lock.yaml
-├── pnpm-workspace.yaml
-└── Launch.command
+└── pnpm-workspace.yaml
 ```
 
 ## editorial-explainer preview
@@ -99,7 +98,7 @@ pnpm preview:editorial-explainer
 
 ## 在這台 Mac 開啟素材設定
 
-雙擊根目錄的 `Launch.command`，或執行：
+在根目錄執行（第一次先跑 `pnpm install`）：
 
 ```sh
 cd ~/code/viral-video-creator

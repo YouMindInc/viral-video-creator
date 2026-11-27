@@ -8,7 +8,7 @@
 
 ## 開啟
 
-雙擊 `Launch.command`，或在本專案目錄執行：
+在本專案目錄執行（第一次先在根目錄跑 `pnpm install`）：
 
 ```sh
 npm start
