@@ -4,7 +4,7 @@
 
 ## 模板一覽
 
-<img width="1296" height="504" alt="模板預覽" src="docs/templates-preview.gif" />
+<img width="1296" alt="模板預覽" src="docs/templates-preview.gif" />
 
 | 模板 | 內容 |
 | --- | --- |
