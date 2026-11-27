@@ -23,6 +23,10 @@
     "check:editorial-explainer": "pnpm --filter @viral-video-creator/editorial-explainer check",
     "sam2:test": "pnpm --filter @viral-video-creator/editorial-explainer sam2:test",
     "sam2:prepare": "pnpm --filter @viral-video-creator/editorial-explainer sam2:prepare",
+    "build:prompt-recipe": "pnpm --filter @viral-video-creator/prompt-recipe build",
+    "preview:prompt-recipe": "pnpm --filter @viral-video-creator/prompt-recipe preview",
+    "render:prompt-recipe": "pnpm --filter @viral-video-creator/prompt-recipe render",
+    "check:prompt-recipe": "pnpm --filter @viral-video-creator/prompt-recipe check",
     "setup:sam2": "node scripts/setup.mjs --sam2-only",
     "test:setup": "node --test scripts/setup.test.mjs",
     "verify": "node scripts/verify-monorepo.mjs"

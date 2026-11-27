@@ -1,6 +1,10 @@
 # AGENT.md — operating guide for `viral-video-creator`
 
-This repo turns two videos and a few lines of text into a finished 1080×1920 short:
+The repo has two templates. Pick one from the user's material, or ask once if it's unclear.
+- **editorial-explainer:** sections 1–4 below.
+- **prompt-recipe:** an AI result shown as a recipe card. See "Prompt Recipe" near the end.
+
+The editorial-explainer template turns two videos and a few lines of text into a finished 1080×1920 short:
 **top** = product / share-content video, **middle** = headline and subtitles, **bottom** = a talking person,
 cut out with SAM2 so their head pops out of a rounded scene card. Rendering is HyperFrames (headless Chrome).
 
@@ -237,6 +241,33 @@ Read the contact sheet, then:
 1. `open "$OUT"`;
 2. give the user the absolute path, the duration and the contact sheet;
 3. stop the live player with `node_modules/.bin/hyperframes preview templates/editorial-explainer --stop`.
+
+## Prompt Recipe (`templates/prompt-recipe`)
+
+A static poster: prompt card + reference image → model name → the AI result video playing. The style and
+geometry are in `templates/prompt-recipe/BREAKDOWN.md`.
+
+**Ask for:**
+1. the AI-generated video;
+2. the prompt text;
+3. one reference image (product or person);
+4. the model or tool name;
+5. optionally, a comment keyword for the call-to-action line (`cta`, e.g. `Comment {skill} to get the … prompt in one click`).
+
+Nothing else is needed. The video's shape picks the layout: portrait → tall, landscape → wide. The length and
+sound come from the video.
+
+**Build it:**
+1. Copy the files into `templates/prompt-recipe/assets/inputs/`.
+2. Edit `templates/prompt-recipe/template.json`: `result`, `prompt.text`, `reference.media` (and
+   `reference.title` for wide, e.g. "Product"), and `cta`. The badge defaults to YouMind; change `model.name`
+   and `model.icon` only for another tool.
+3. Run `pnpm build:prompt-recipe`.
+
+**Preview:** run `node_modules/.bin/hyperframes snapshot templates/prompt-recipe --at 2 --no-end -o "$RUN"`.
+For the live player, run `node_modules/.bin/hyperframes preview templates/prompt-recipe --port 3019 --background --no-open`.
+
+**Final:** `pnpm render:prompt-recipe` writes `templates/prompt-recipe/renders/prompt-recipe.mp4`.
 
 ## Manual SAM2 (face not detected, wrong mask, person size)
 

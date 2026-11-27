@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080,initial-scale=1">
+  <title>Prompt recipe</title>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: 'Recipe Sans'; src: url('assets/fonts/Poppins-Regular.ttf'); font-weight: 400; }
+    @font-face { font-family: 'Recipe Sans'; src: url('assets/fonts/Poppins-SemiBold.ttf'); font-weight: 600; }
+    @font-face { font-family: 'Recipe Sans'; src: url('assets/fonts/Poppins-Bold.ttf'); font-weight: 700; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #FFF9F4; }
+    #prompt-recipe { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #0D0D0D; font-family: 'Recipe Sans', sans-serif;
+      background: linear-gradient(172deg, #F7C29A 0%, #FADBC6 42%, #FFF9F4 100%); }
+    /* Faint white grid that fades out toward the edges, as in the reference posts. */
+    #grid { position: absolute; inset: 0; opacity: .55;
+      background-image: linear-gradient(#FFFFFF 2px, transparent 2px), linear-gradient(90deg, #FFFFFF 2px, transparent 2px);
+      background-size: 130px 130px; background-position: -6px 28px;
+      -webkit-mask-image: radial-gradient(ellipse 62% 42% at 50% 56%, #000 0%, transparent 100%); mask-image: radial-gradient(ellipse 62% 42% at 50% 56%, #000 0%, transparent 100%); }
+    .box { position: absolute; }
+    .title { display: flex; align-items: flex-end; justify-content: center; font-weight: 700; letter-spacing: -0.01em; line-height: 1; white-space: nowrap; }
+    #model { display: flex; align-items: center; justify-content: center; gap: 18px; font-weight: 700; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; }
+    #model svg { flex: none; width: 1em; height: 1em; }
+    #model img { flex: none; width: auto; height: .74em; display: block; }
+    #prompt-card { overflow: hidden; background: #5F5F5F; color: #FFFFFF; display: flex; flex-direction: column; justify-content: center; }
+    #prompt-card p { margin: 0 0 1.05em; } #prompt-card p:last-child { margin-bottom: 0; }
+    .plus { display: flex; align-items: center; justify-content: center; }
+    .plus i { position: relative; display: block; width: 58px; height: 58px; }
+    .plus i::before, .plus i::after { content: ''; position: absolute; background: #0D0D0D; border-radius: 2px; }
+    .plus i::before { left: 0; top: 22px; width: 58px; height: 14px; } .plus i::after { left: 22px; top: 0; width: 14px; height: 58px; }
+    #reference { overflow: hidden; background: #FFFFFF; }
+    #reference img, #reference video { width: 100%; height: 100%; display: block; object-fit: cover; }
+    #result { overflow: hidden; background: #000; }
+    #result video { width: 100%; height: 100%; display: block; object-fit: cover; }
+    #cta { left: 60px; width: 960px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 46px; font-weight: 700; line-height: 1.32; letter-spacing: -0.01em; }
+    #cta:empty { display: none; }
+    #cta .cta-line { display: block; max-width: 100%; text-wrap: balance; }
+    #cta .kw { display: inline-block; padding: 0 .34em; border-radius: .28em; background: #0D0D0D; color: #FFF9F4; line-height: 1.25; }
+
+    /* Tall: the result is portrait; recipe on the left, model + result on the right. */
+    .tall #prompt-title { left: 28px; top: 168px; width: 388px; height: 92px; font-size: 76px; }
+    .tall #prompt-card { left: 28px; top: 271px; width: 388px; height: 689px; padding: 22px 18px; font-size: 27px; font-weight: 600; line-height: 1.33; text-align: center; }
+    .tall #plus-a { left: 28px; top: 990px; width: 388px; height: 100px; }
+    .tall #plus-b, .tall #reference-title { display: none; }
+    .tall #reference { left: 27px; top: 1125px; width: 390px; height: 518px; }
+    .tall #model { left: 433px; top: 318px; width: 620px; height: 84px; font-size: 70px; }
+    .tall #result { left: 433px; top: 409px; width: 620px; height: 1101px; }
+    .tall #cta { top: 1676px; height: 196px; }
+
+    /* Wide: the result is landscape; model + result on top, recipe row underneath. */
+    .wide #model { left: 52px; top: 232px; width: 976px; height: 90px; font-size: 72px; }
+    .wide #result { left: 52px; top: 337px; width: 976px; height: 550px; }
+    .wide #plus-a { left: 470px; top: 968px; width: 140px; height: 100px; }
+    .wide #prompt-title { left: 52px; top: 1062px; width: 373px; height: 80px; font-size: 58px; }
+    .wide #prompt-card { left: 52px; top: 1149px; width: 373px; height: 662px; padding: 56px 28px; font-size: 22px; font-weight: 400; line-height: 1.24; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+    .wide #plus-b { left: 440px; top: 1366px; width: 170px; height: 100px; }
+    .wide #reference-title { left: 625px; top: 1076px; width: 350px; height: 80px; font-size: 58px; }
+    .wide #reference { left: 625px; top: 1197px; width: 350px; height: 526px; }
+    .wide #cta { top: 64px; height: 150px; }
+  </style>
+</head>
+<body>
+  <div id="prompt-recipe" class="tall" data-composition-id="prompt-recipe" data-start="0" data-duration="10.041667" data-width="1080" data-height="1920">
+    <div id="grid"></div>
+    <div id="model" class="box"><img src="assets/brand/youmind-mark.png" alt=""><span>YouMind</span></div>
+    <div id="result" class="box"><video id="result-video" class="clip" src="assets/sample/giant-kitten.mp4" data-start="0" data-duration="10.041667" data-track-index="1" muted playsinline preload="auto"></video></div>
+    <div id="plus-a" class="box plus"><i></i></div>
+    <div id="prompt-title" class="box title">Prompt</div>
+    <div id="prompt-card" class="box"><p>Create a 10 second photorealistic disaster-movie shot, vertical 9:16.</p><p>IMAGE 1: Preserve the kitten's exact face, tabby markings, white chest and paws, ear shape and eye colour. Do not change its identity.</p><p>The kitten is now skyscraper-sized in downtown Los Angeles. Low street-level angle: it peers between glass towers and paws at a window while police cars and a crowd film it on their phones. Cut to an aerial drone shot as it steps across the rooftops. Bright daylight, drifting dust, handheld news-camera feel.</p></div>
+    <div id="plus-b" class="box plus"><i></i></div>
+    <div id="reference-title" class="box title">Reference</div>
+    <div id="reference" class="box"><img src="assets/sample/kitten-reference.jpg" alt="Reference"></div>
+    <div id="cta" class="box"><span class="cta-line">Comment <span class="kw">skill</span> to get the Giant Kitten generation prompt in one click</span></div>
+    <audio id="soundtrack" class="clip" src="assets/sample/giant-kitten.mp4" data-start="0" data-duration="10.041667" data-track-index="3" data-volume="1" preload="auto"></audio>
+  </div>
+  <script>
+    // Fit user-supplied text before constructing the synchronous GSAP timeline.
+    // The prompt starts at the layout's largest size and shrinks until it fills the card without overflowing.
+    function fitWidth(element, maxWidth) {
+      var size = parseFloat(getComputedStyle(element).fontSize);
+      while (size > 18 && element.scrollWidth > maxWidth) { size -= 1; element.style.fontSize = size + 'px'; }
+    }
+    function fitHeight(element) {
+      var size = parseFloat(getComputedStyle(element).fontSize);
+      element.style.justifyContent = 'flex-start';
+      while (size > 9 && element.scrollHeight > element.clientHeight) { size -= 0.5; element.style.fontSize = size + 'px'; }
+      element.style.justifyContent = '';
+    }
+    fitWidth(document.getElementById('model'), document.getElementById('model').clientWidth);
+    document.querySelectorAll('.title').forEach(function(el) { fitWidth(el, el.clientWidth); });
+    fitHeight(document.getElementById('prompt-card'));
+    (function (cta) { var size = 46; while (size > 22 && cta.scrollHeight > cta.clientHeight) { size -= 1; cta.style.fontSize = size + 'px'; } })(document.getElementById('cta'));
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+    if (false) {
+      tl.from('#result', { opacity: 0, scale: 0.97, duration: 0.45, ease: 'power3.out' }, 0.05);
+      tl.from('#model', { opacity: 0, y: -14, duration: 0.35, ease: 'power2.out' }, 0.15);
+      tl.from(['#prompt-title', '#prompt-card'], { opacity: 0, y: 18, duration: 0.4, ease: 'power3.out', stagger: 0.06 }, 0.25);
+      tl.from(['#plus-a', '#plus-b'], { opacity: 0, scale: 0.4, duration: 0.3, ease: 'back.out(2)', stagger: 0.08 }, 0.4);
+      tl.from(['#reference-title', '#reference'], { opacity: 0, y: 18, duration: 0.4, ease: 'power3.out', stagger: 0.06 }, 0.5);
+      tl.from('#cta', { opacity: 0, scale: 0.92, duration: 0.35, ease: 'back.out(2)' }, 0.7);
+    }
+    tl.set('#prompt-recipe', { opacity: 1 }, 10.041667);
+    window.__timelines['prompt-recipe'] = tl;
+  </script>
+</body>
+</html>
