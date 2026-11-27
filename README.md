@@ -13,6 +13,11 @@ viral-video-creator/
 └── Launch.command
 ```
 
+## editorial-explainer preview
+
+<img width="1582" height="1035" alt="editorial-explainer-preview" src="https://github.com/user-attachments/assets/6abc23fc-b8cf-4fe1-8ebe-439a83881c6c" />
+
+
 ## 一個指令產生影片
 
 ```sh
