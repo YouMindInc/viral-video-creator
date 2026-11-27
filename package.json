@@ -11,6 +11,8 @@
     "pnpm": ">=10"
   },
   "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "setup:editorial-explainer": "node scripts/setup.mjs",
     "start": "pnpm dev:editorial-explainer",
     "generate:editorial-explainer": "node templates/editorial-explainer/scripts/generate.mjs",
     "clean:editorial-explainer": "node templates/editorial-explainer/scripts/clean.mjs",
@@ -21,7 +23,8 @@
     "check:editorial-explainer": "pnpm --filter @viral-video-creator/editorial-explainer check",
     "sam2:test": "pnpm --filter @viral-video-creator/editorial-explainer sam2:test",
     "sam2:prepare": "pnpm --filter @viral-video-creator/editorial-explainer sam2:prepare",
-    "setup:sam2": "bash tools/sam2/Setup.command",
+    "setup:sam2": "node scripts/setup.mjs --sam2-only",
+    "test:setup": "node --test scripts/setup.test.mjs",
     "verify": "node scripts/verify-monorepo.mjs"
   },
   "packageManager": "pnpm@10.14.0"

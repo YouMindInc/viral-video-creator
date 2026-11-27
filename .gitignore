@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/
 .venv/
+tools/sam2/.venv.backup-*/
+tools/sam2/.venv.failed-*/
 __pycache__/
 *.pyc
 .cache/
@@ -24,3 +26,4 @@ tools/sam2/examples/output/
 !**/assets/persona/sam2-88e005db878635b4.webm
 **/assets/persona/sam2-tests/*/
 !**/assets/persona/sam2-tests/88e005db878635b4/
+tools/sam2/wheels/

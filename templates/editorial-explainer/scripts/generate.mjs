@@ -8,9 +8,10 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { root, hf, asset, probe, digest, cropFor, readConfig, normalizeConfig, parseSrt, preparedManifest, build } from './hyperframes-project.mjs';
 import { sam2Repo, sam2Tests } from './sam2-bridge.mjs';
+import { resolveWhisperModel } from '../../../scripts/runtime-paths.mjs';
 
 const repo = path.resolve(root, '../..');
-const whisperModel = process.env.WHISPER_MODEL || path.join(os.homedir(), '.cache/whisper-cpp-models/ggml-large-v3-turbo.bin');
+const whisperModel = resolveWhisperModel();
 const help = `使用方式：pnpm generate:editorial-explainer [選項]
 
 依序提供人物錄影、上方內容影片、品牌、兩行標題、標籤和字幕。
@@ -95,7 +96,7 @@ export async function collectMaterials(questions, base = readConfig()) {
       if (mode === 'none') return { mode };
       if (mode === 'auto') {
         if (!person.info.hasAudio) throw new Error('人物影片沒有音軌，請提供 SRT 或選 none。');
-        if (!hasWhisper()) throw new Error('找不到 whisper-cli 或本機模型。請提供 SRT 或選 none；可用 WHISPER_MODEL 指定既有模型。');
+        if (!hasWhisper()) throw new Error('找不到 whisper-cli 或本機模型。請先執行 pnpm setup:editorial-explainer --with-whisper，或提供 SRT / 選 none。');
         return { mode };
       }
       const file = materialPath(value);

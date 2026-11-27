@@ -1,5 +1,5 @@
 # Apple Silicon macOS, Python 3.12. Also needs ffmpeg on PATH (brew install ffmpeg).
-# If PyPI is slow, install coremltools from the bundled wheel: wheels/coremltools-9.0-cp312-none-macosx_11_0_arm64.whl
+# If PyPI is slow, put coremltools-9.0-cp312-none-macosx_11_0_arm64.whl in wheels/ (gitignored); setup uses it.
 coremltools==9.0
 numpy==2.3.5
 opencv-python-headless==4.13.0.92

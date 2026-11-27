@@ -1,5 +1,6 @@
 {
   "model": "apple/coreml-sam2-small",
+  "revision": "0d45c89f32fc32f786c540299bd0d8ff9d8c5d55",
   "files": {
     "models/coreml-sam2-small/SAM2SmallImageEncoderFLOAT16.mlpackage/Data/com.apple.CoreML/model.mlmodel": "6b83f9fd856c10d562bb4996b88913229d200326cd583520ecaa8aec944b7d83",
     "models/coreml-sam2-small/SAM2SmallImageEncoderFLOAT16.mlpackage/Data/com.apple.CoreML/weights/weight.bin": "bea4817bcb35157b9d89cff1d5667f2749652461e9e4eb5a32d0ddf58f519c43",

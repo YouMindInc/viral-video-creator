@@ -14,7 +14,7 @@ run the tool: rules, the standard procedure, and how to map a request to flags.
 - **Always run from `tools/sam2` with `.venv/bin/python`.** The venv is already set up. Never
   `pip install` into `~/.venv`; that is the user's main environment.
 - **PyPI is extremely slow on this network.** If `.venv` is missing or broken, reinstall from
-  `wheels/` (see README "Requirements / setup"). Don't wait minutes on a hanging `uv pip install`.
+  `wheels/` if it exists (a local, gitignored cache; see README "Requirements / setup"). Don't wait minutes on a hanging `uv pip install`.
 - **`hf` CLI in `~/.venv` is broken** (missing `typer`). The model is already in `models/`; don't re-download it.
 - **Never write into the input's folder or overwrite the input.** Always pass a fresh `--out` directory.
 - **Test frames first, full render second.** Never start a full render without looking at test images.

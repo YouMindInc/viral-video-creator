@@ -53,7 +53,7 @@ tools/sam2/
 │   ├── SAM2SmallImageEncoderFLOAT16.mlpackage
 │   ├── SAM2SmallPromptEncoderFLOAT16.mlpackage
 │   └── SAM2SmallMaskDecoderFLOAT16.mlpackage
-├── wheels/                       coremltools wheel (offline install; PyPI is very slow on this network)
+├── wheels/                       optional local coremltools wheel for offline install (gitignored; PyPI is very slow on this network)
 └── examples/
     ├── character-talking.mp4                      example input (1080x1920, 25 fps, 20 s, with audio)
     ├── test/test_XXXX.jpg                         output of the --test-frames run
@@ -65,26 +65,22 @@ tools/sam2/
 ## Requirements / setup
 
 - macOS on Apple Silicon (Core ML prediction only works on macOS).
-- `ffmpeg` on `PATH` (`brew install ffmpeg`). Already installed here: `/Users/wilson/apps/homebrew-main/bin/ffmpeg`.
-- Python 3.12 venv with `coremltools numpy opencv-python-headless pillow`. **`.venv/` is already set up**;
-  only recreate it if it is missing/broken:
+- Node.js 22+, pnpm, and Homebrew when system tools are missing.
+- The installer sets up FFmpeg, uv, Python 3.12 and pinned dependencies in `tools/sam2/.venv`.
 
 ```bash
-cd tools/sam2
-uv venv --python 3.12 .venv
-# coremltools from the bundled wheel (PyPI downloads are extremely slow on this network)
-uv pip install --python .venv/bin/python wheels/coremltools-9.0-cp312-none-macosx_11_0_arm64.whl \
-    numpy==2.3.5 opencv-python-headless==4.13.0.92 pillow
-# if offline: add --offline (works when the wheels are in ~/.cache/uv)
+# From the monorepo root:
+pnpm setup:sam2
+pnpm setup:sam2 --check
+# Or run tools/sam2/Setup.command.
 ```
 
-- Model: already in `models/`. To re-download (the `hf` CLI in `~/.venv` is broken — missing `typer` —
-  so use the Python API):
-
-```bash
-~/.venv/bin/python -c "from huggingface_hub import snapshot_download; \
-snapshot_download('apple/coreml-sam2-small', local_dir='models/coreml-sam2-small')"
-```
+- Models live in `models/`. Setup validates the SHA-256 checksums in `model-files.sha256.json`,
+  downloads missing or damaged files from the pinned Hugging Face revision, and reuses complete files.
+  It invokes `hf` through an isolated `uv tool run` environment; it does not use the broken global CLI.
+- Rerun after an interrupted download to reuse its cache. `--dry-run` lists missing installation steps.
+- For the template, browser, and optional automatic subtitles, use
+  `pnpm setup:editorial-explainer --with-whisper` instead.
 
 Do **not** `pip install` into `~/.venv` (the user's main env); use `tools/sam2/.venv`.
 

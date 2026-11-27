@@ -27,7 +27,7 @@ pnpm generate:editorial-explainer
 
 依提示提供下半部人物錄影、上半部產品／分享內容動畫、品牌、兩行標題、內容標籤與字幕。可以將 Finder 裡的檔案直接拖進 Terminal；按 Enter 沿用畫面上的預設值，文字欄輸入 `-` 清空。最後選 `sam2`（人物輪廓加圓角場景）或 `original`（原片裁切）。位置與配色沿用目前模板，可先在素材設定頁調整。
 
-字幕可提供 `.srt`，輸入 `auto` 用本機 Whisper 辨識，或輸入 `none` 不顯示字幕。同一支人物影片可用 `keep` 沿用字幕；換人物後不會帶入上一支影片的字幕。自動辨識需要已安裝的 `whisper-cli` 和 `~/.cache/whisper-cpp-models/ggml-large-v3-turbo.bin`，也可用 `WHISPER_MODEL` 指向其他既有的多語言模型；指令不會自動下載模型。
+字幕可提供 `.srt`，輸入 `auto` 用本機 Whisper 辨識，或輸入 `none` 不顯示字幕。同一支人物影片可用 `keep` 沿用字幕；換人物後不會帶入上一支影片的字幕。自動辨識可先用 `pnpm setup:editorial-explainer --with-whisper` 安裝。產生器會使用 repo 的 `.cache/models/whisper/ggml-large-v3-turbo.bin`，或重用既有的 `~/.cache/whisper-cpp-models/ggml-large-v3-turbo.bin`；`WHISPER_MODEL` 可指定其他既有的多語言模型。
 
 新人物先產生五張 SAM2 抽樣圖，請查看人物輪廓與背景框，在 Terminal 輸入 `yes` 後就會接著完整去背、檢查版面、輸出 MP4。相同人物與背景框設定直接重用已完成的去背。片長跟隨人物錄影，聲音只取人物原片；上方影片較短時停在最後一幀，較長時截至人物片長。
 
@@ -102,20 +102,43 @@ pnpm dev:editorial-explainer
 
 ## 從 Git clone 後設定
 
-支援 Apple Silicon macOS。需要 Node.js 22+、pnpm 10.14+、FFmpeg、FFprobe，以及 SAM2 所需的 uv/Python 3.12。
+支援 Apple Silicon macOS。先安裝 Node.js 22+ 與 pnpm 10.14+；缺少系統工具時需要 [Homebrew](https://brew.sh)。
 
 ```sh
-pnpm install --frozen-lockfile
-pnpm setup:sam2
-pnpm dev:editorial-explainer
+pnpm setup:editorial-explainer
+
+# 一起安裝自動字幕工具與多語言模型（約 1.6GB）
+pnpm setup:editorial-explainer --with-whisper
+
+# 只檢查，不安裝或下載；缺少必要元件時回傳非零狀態
+pnpm setup:editorial-explainer --check --with-whisper
+
+# 先列出缺少的項目和安裝步驟
+pnpm setup:editorial-explainer --dry-run --with-whisper
 ```
 
-`setup:sam2` 只會建立缺少的 Python 環境並安裝固定版本依賴；模型缺少時才下載 `apple/coreml-sam2-small`。已下載模型的內容雜湊列於 `tools/sam2/model-files.sha256.json`。虛擬環境、模型權重、Node 依賴及大型中間輸出保留本機並被 Git 忽略；程式、說明、鎖定檔、模型來源／雜湊及範例素材則納入版本控制。
+完整設定會依序補齊：
+
+- HyperFrames、GSAP 與 pnpm 鎖定的 Node 依賴。
+- FFmpeg／FFprobe 和 uv；缺少時透過 Homebrew 安裝。
+- `tools/sam2/.venv` 的 Python 3.12 與固定版本 Python 依賴；若本機 `tools/sam2/wheels/` 有 coremltools wheel 會優先使用（不納入 Git）。
+- [Apple Core ML SAM2-small](https://huggingface.co/apple/coreml-sam2-small/tree/0d45c89f32fc32f786c540299bd0d8ff9d8c5d55) 三個模型套件，固定 revision 並檢查每個檔案的 SHA-256。
+- HyperFrames 所需的 Chrome；重用既有瀏覽器，缺少時才下載。
+
+`--with-whisper` 另外安裝 [whisper.cpp](https://formulae.brew.sh/formula/whisper.cpp) 的 `whisper-cli` 與 [多語言 large-v3-turbo 模型](https://huggingface.co/ggerganov/whisper.cpp)。下載的新字幕模型放在 repo 的 `.cache/models/whisper/`；已存在的共用模型會重用。若設定 `WHISPER_MODEL`，該自訂模型必須已存在，安裝程式不會覆寫它。
+
+重複執行會跳過已安裝且版本相符的元件；模型會驗證內容，而非只看檔名。網路中斷後重跑相同指令會重用下載快取。模型缺少時只補缺少的檔案，損壞時只重新下載損壞的檔案。安裝失敗會停止並顯示原因，同時執行第二個安裝程序會被阻止。Python 環境需要重建時會先保留備份，建立失敗會還原。
+
+只需要 SAM2 時可用 `pnpm setup:sam2` 或 `tools/sam2/Setup.command`，同樣支援 `--check`／`--dry-run`。通用別名是 `pnpm run setup`（注意 `pnpm setup` 本身是 pnpm 的內建指令）。元件檢查不會執行 Core ML 推論或完整影片渲染。
+
+SAM2 模型內容雜湊列於 `tools/sam2/model-files.sha256.json`，字幕模型資訊列於 `scripts/whisper-model.json`。虛擬環境、模型權重、Node 依賴及大型中間輸出被 Git 忽略；程式、說明、鎖定檔、模型來源／雜湊及範例素材則納入版本控制。`clean:editorial-explainer` 會保留這些安裝項目。
 
 ## 常用指令
 
 | 指令 | 用途 |
 | --- | --- |
+| `pnpm setup:editorial-explainer` | 安裝依賴、SAM2 模型與 Chrome；可加 `--with-whisper` |
+| `pnpm setup:editorial-explainer --check` | 只檢查安裝項目與模型內容 |
 | `pnpm generate:editorial-explainer` | 詢問素材、自動處理與輸出 MP4 |
 | `pnpm clean:editorial-explainer` | 清除暫存；可加 `--prepared`、`--renders` 或 `--dry-run` |
 | `pnpm dev:editorial-explainer` | 開啟素材設定頁與 HyperFrames |
